@@ -40,23 +40,21 @@ getLinux() {
   done
 }
 
-#install rbenv on osx or any linux
-rbenvInstall() {
-  if [[ $os -eq 0 ]]; then
-    brew install rbenv
-    brew install ruby-build
-  else
-    git clone git://github.com/sstephenson/rbenv.git $HOME/.rbenv
-    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> $HOME/.zshrc
-    git clone git://github.com/sstephenson/ruby-build.git $HOME/.rbenv/plugins/ruby-build
-  fi
-  echo -e "If you're not using the zshrc in this repo add 'eval "$(rbenv init -)"' to your bashrc or zshrc.\n"
+#arch pianobar-git install
+archPB() {
+  mkdir $HOME/pb_build && cd $HOME/pb_build
+  curl -L https://aur.archlinux.org/packages/pi/pianobar-git/pianobar-git.tar.gz > pianobar-git.tar.gz
+  tar -xf pianobar-git.tar.gz
+  cd pianobar-git
+  makepkg -si
+  cd $HOME
+  rm -rf $HOME/pb_build
+  echo -e "Pianobar installed... \n"
 }
 
 archPianobar() {
-  archPianoBar
   sudo mv /etc/libao.conf /etc/liba.conf.bak
-  sudo echo "default_drive=pulese" >> /etc/libao.conf
+  sudo echo "default_driver=pulse" > /etc/libao.conf
 }
 
 osxPianobar() {
@@ -69,14 +67,6 @@ ubuPianobar() {
   cd pianobar && make clean
   make
   sudo make install
-}
-
-#ubuntu YCM plugin plugin installation
-ubuYCM() {
-  echo -e "Installing YCM plugin plugin... \n"
-  sudo apt-get install build-essential cmake python-dev
-  cd $HOME/.vim/bundle/YouCompleteme
-  ./install.sh --clang-completer
 }
 
 ubuPowerline() {
@@ -103,16 +93,6 @@ ubuPowerline() {
   echo -e "Powerline should have installed successfully.  Locate it and add rtp+=path/to/powerline/bindings/vim to your vimrc.\n":
 }
 
-#arch YCM plugin plugin installation
-archYCM() {
-  echo -e "Installing YCM plugin... \n"
-  sudo pacman -S clang cmake
-  mkdir $HOME/ycm_build && cd $HOME/ycm_build
-  cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . $HOME/.vim/bundle/YouCompleteMe/cpp
-  make ycm_core
-  cp /usr/lib/llvm/libclang.so $HOME/.vim/bundle/YouCompleteMe/python
-}
-
 #arch python2-powerline-git install
 archPowerline() {
   mkdir $HOME/pl_build && cd $HOME/pl_build
@@ -122,17 +102,6 @@ archPowerline() {
   makepkg -si
   cd $HOME
   rm -rf $HOME/pl_build
-}
-
-#arch pianobar-git install
-archPianobar() {
-  mkdir $HOME/pb_build && cd $HOME/pb_build
-  curl -L https://aur.archlinux.org/packages/pi/pianobar-git/pianobar-git.tar.gz > pianobar-git.tar.gz
-  tar -xf pianobar-git.tar.gz
-  cd pianobar-git
-  makepkg -si
-  cd $HOME
-  rm -rf $HOME/pb_build
 }
   
 #Install oh-my-zsh
@@ -146,7 +115,7 @@ ohmyzsh() {
 #git and clone the git file for install
 cloneRepo() {
   echo -e "Cloning dotfile repo into directory...\n"
-  git clone https://github.com/freekingDean/dotfiles.git $HOME/.dotfiles
+  git clone https://github.com/FreekingDean/dotfiles.git $HOME/.dotfiles
 }
 
 ####END FUNCTIONS####
@@ -154,19 +123,19 @@ cloneRepo() {
 echo -e "$unamestr detected!\n"
 getOS
 
-echo -e "Installing zsh and git...\n"
+echo -e "Installing zsh wget curl git gvim & tmux...\n"
 if [[ $os -eq 0 ]]; then
   echo -e "Installing homebrew first...\n"
   ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
   brew update
-  brew install zsh git curl wget
+  brew install zsh git curl wget gvim tmux
 elif [[ $linux -eq 1 ]]; then
   sudo pacman -Syu
-  sudo pacman -S zsh git curl wget
+  sudo pacman -S zsh git curl wget gvim tmux
   installPacker
 else
   sudo apt-get update
-  sudo apt-get install zsh git curl wget
+  sudo apt-get install zsh git curl wget gvim tmux
 fi
 
 #clone the repo into users home dir
@@ -196,16 +165,18 @@ mkdir -p $HOME/.vim/tmp $HOME/.vim/backups
 echo -e "Running basic git configuration...\n"
 read -p "Enter your name (full name): " name
 read -p "Enter your git email address: " email
-git config --global user.name "$name"
-git config --global user.email "$email"
+git config --global user.name $name
+git config --global user.email $email
 
 #install pianobar and save configurationG
 echo -e "Installing pianobar...\n"
 if [[ $os -eq 0 ]]; then
   osxPianobar
-else if [[ $linux -eq 2 ]]; then  #UBUNTU
+elif [[ $linux -eq 2 ]]; then  #UBUNTU
   ubuPianobar
 else
+  echo -e "Installing pb in arch\n"
+  archPB
   archPianobar
 fi
 
@@ -230,15 +201,10 @@ if [[ $os -ne 0 ]]; then
     ubuPowerline
   else
     #ARCH
-    echo -e "Installing YCM plugin plugin... \n"
-    archYCM
-    ehco -e "YCM complete, installing powerline...\n"
-    archPowerLine
+    ehco -e "Installing powerline...\n"
+    archPowerline
   fi
 fi
-
-#rbenv installation
-rbenvInstall
 
 #ip tables to prevent a good bit of bullshit ISP throttling
 #echo -e "Adding ISP throttling IP to iptables...\n"
