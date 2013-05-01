@@ -54,7 +54,7 @@ rbenvInstall() {
 }
 
 archPianobar() {
-  sudo packer -S pianobar-git
+  archPianoBar
   sudo mv /etc/libao.conf /etc/liba.conf.bak
   sudo echo "default_drive=pulese" >> /etc/libao.conf
 }
@@ -105,7 +105,7 @@ ubuPowerline() {
 
 #arch YCM plugin plugin installation
 archYCM() {
-  echo -e "Installing YCM plugin plugin... \n"
+  echo -e "Installing YCM plugin... \n"
   sudo pacman -S clang cmake
   mkdir $HOME/ycm_build && cd $HOME/ycm_build
   cmake -G "Unix Makefiles" -DUSE_SYSTEM_LIBCLANG=ON . $HOME/.vim/bundle/YouCompleteMe/cpp
@@ -113,6 +113,28 @@ archYCM() {
   cp /usr/lib/llvm/libclang.so $HOME/.vim/bundle/YouCompleteMe/python
 }
 
+#arch python2-powerline-git install
+archPowerline() {
+  mkdir $HOME/pl_build && cd $HOME/pl_build
+  curl -L https://aur.archlinux.org/packages/py/python2-powerline-git/python2-powerline-git.tar.gz > python2-powerline-git.tar.gz
+  tar -xf python2-powerline-git.tar.gz 
+  cd python2-powerline-git
+  makepkg -si
+  cd $HOME
+  rm -rf $HOME/pl_build
+}
+
+#arch pianobar-git install
+archPianobar() {
+  mkdir $HOME/pb_build && cd $HOME/pb_build
+  curl -L https://aur.archlinux.org/packages/pi/pianobar-git/pianobar-git.tar.gz > pianobar-git.tar.gz
+  tar -xf pianobar-git.tar.gz
+  cd pianobar-git
+  makepkg -si
+  cd $HOME
+  rm -rf $HOME/pb_build
+}
+  
 #Install oh-my-zsh
 ohmyzsh() {
   echo -e "Installing oh-my-zsh...\n"
@@ -120,6 +142,13 @@ ohmyzsh() {
   #in case prompt fails for zsh
   chsh -s /bin/zsh
 }
+
+#git and clone the git file for install
+cloneRepo() {
+  echo -e "Cloning dotfile repo into directory...\n"
+  git clone https://github.com/freekingDean/dotfiles.git $HOME/.dotfiles
+}
+
 ####END FUNCTIONS####
 
 echo -e "$unamestr detected!\n"
@@ -127,13 +156,21 @@ getOS
 
 echo -e "Installing zsh and git...\n"
 if [[ $os -eq 0 ]]; then
-  echo -e "Installing homebrew first...\n"; ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-  brew update; brew install zsh git curl wget
+  echo -e "Installing homebrew first...\n"
+  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+  brew update
+  brew install zsh git curl wget
 elif [[ $linux -eq 1 ]]; then
-  sudo pacman -Syu; sudo pacman -S zsh git curl wget
+  sudo pacman -Syu
+  sudo pacman -S zsh git curl wget
+  installPacker
 else
-  sudo apt-get update; sudo apt-get install zsh git curl wget
+  sudo apt-get update
+  sudo apt-get install zsh git curl wget
 fi
+
+#clone the repo into users home dir
+cloneRepo
 
 #install oh-my-zsh
 ohmyzsh
@@ -196,7 +233,7 @@ if [[ $os -ne 0 ]]; then
     echo -e "Installing YCM plugin plugin... \n"
     archYCM
     ehco -e "YCM complete, installing powerline...\n"
-    packer -S python2-powerline-git
+    archPowerLine
   fi
 fi
 
