@@ -1,0 +1,33 @@
+# pane0:top |  pane1:bottom-left | pane2:bottom-mid | pane3: between mid and right (nicklist) | pane4:bottom-right
+
+# select first pane -- only one if empty
+rename-window local
+select-pane -t 0
+
+# split horizontally by 78% - weird I know
+split-window -v -p 22
+
+# select bottom pane and split vertically by 15% for pianobar
+select-pane -t 1
+split-window -h -p 15
+
+# select larger bottom pane and split in half - yielding 3 panes
+select-pane -t 1
+split-window -h -p 50
+
+#split the irssi window for the nicklist
+select-pane -t 2
+split-window -h -p 15
+resize-pane -t 3 -L 4
+
+#launch irssi, nicklist and pianobar in their respective panes
+send -t 4 pianobar ENTER
+send -t 2 irssi ENTER
+send -t 3 'cat ~/.irssi/nicklistfifo' ENTER
+send -t 2 '/nicklist fifo' ENTER
+
+#select top pane
+select-pane -t 0
+
+#open new window at my dev server
+#new-window -n 'Omni-Utility' 'ssh oms1'

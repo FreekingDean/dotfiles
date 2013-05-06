@@ -1,44 +1,9 @@
 #! /bin/bash
-#Detect uname for proper os configuration
-unamestr=$( uname -s )
+####################################
+#Install for all configs in Arch
+####################################
 
 ####FUNCTIONS####
-
-#build vim from source for ubuntu - per instructions in YCM repo
-ubuVim(){
-  #first remove vim/gvim and install dependencies
-  sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev libgtk2.0-dev libatk1.0-dev libbonoboui2-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev ruby-dev mercurial
-  sudo apt-get remove vim vim-runtime gvim
-  cd ~
-  #download install and build
-  hg clone https://code.google.com/p/vim/
-  cd vim
-  ./configure --with-features=huge --enable-rubyinterp --enable-pythoninterp --enable-perlinterp --enable-gui=gtk2 --enable-cscope --prefix=/usr
-  make VIMRUNTIMEDIR=/usr/share/vim/vim73
-  sudo make install
-}
-
-
-#detect the os being used -- better way to do this?
-getOS() {
-  case $unamestr in
-    Darwin) os=0;;
-     Linux) os=1; if [ -n $linux ]; then getLinux; fi;;
-         *) echo -e "Uname was nor properly detected, this script will not complete properly.\n";;
-  esac
-}
-
-#choose between my two main linux distributions
-getLinux() {
-  while true; do
-    read -p "Enter a 1 if using Arch, enter 2 if using Ubuntu: " lin
-    case $lin in
-      1) linux=1; break;;
-      2) linux=2; break;;
-      *) echo -e "Please enter a 1 or 2.\n";;
-    esac
-  done
-}
 
 #arch pianobar-git install
 archPB() {
@@ -55,42 +20,6 @@ archPB() {
 archPianobar() {
   sudo mv /etc/libao.conf /etc/liba.conf.bak
   sudo echo "default_driver=pulse" > /etc/libao.conf
-}
-
-osxPianobar() {
- brew install pianobar
-}
-
-ubuPianobar() {
-  sudo apt-get install libao-dev libmad0-dev libfaac-dev libfaad-dev libgnutls-dev libjson0-dev
-  git clone git://github.com/PromyLOPh/pianobar.git
-  cd pianobar && make clean
-  make
-  sudo make install
-}
-
-ubuPowerline() {
-  sudo apt-get install python-pip
-  pip install --user git+git://github.com/Lokaltog/powerline
-  echo "set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim" >> $HOME/.vimrc
-  mkdir $HOME/.fonts && cd $HOME/.fonts
-  fontConfDir='unset'
-  if [[ -d "$HOME/.fonts.conf.d" ]]; then   #fontconfig
-    fontConfDir="$HOME/.fonts.conf.d"
-  elif  [[ -d "$HOME/.config/fontconfig/conf.d" ]]; then  
-    fontConfDir="$HOME/.config/fontconfig/conf.d"
-  fi
-  if [[ $fontConfDir != 'unset' ]]; then
-    echo -e "Setting up fontconfig so powerline has proper symbols...\n"
-    wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf
-    cd $fontConfDir && wget https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
-  else # no fontconfig detected
-    echo -e "Downloading two patched fonts (Inconsolata/DroidSansMono) that you can set for use in your terminal of choice since fontconfig failed...\n"
-    wget https://github.com/Lokaltog/powerline-fonts/tree/master/Inconsolata/Inconsolata\ for\ Powerline.otf
-    wget https://github.com/Lokaltog/powerline-fonts/tree/master/DroidSansMono/Droid\ Sans\ Mono\ for\ Powerline.otf
-  fi
-  fc-cache -vf $HOME/.fonts
-  echo -e "Powerline should have installed successfully.  Locate it and add rtp+=path/to/powerline/bindings/vim to your vimrc.\n":
 }
 
 #arch python2-powerline-git install
@@ -120,23 +49,11 @@ cloneRepo() {
 
 ####END FUNCTIONS####
 
-echo -e "$unamestr detected!\n"
-getOS
+echo -e "PREPARE YOUR ARCH FOR SOME MOFUCKIN DOTS."
 
-echo -e "Installing zsh wget curl git gvim & tmux...\n"
-if [[ $os -eq 0 ]]; then
-  echo -e "Installing homebrew first...\n"
-  ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
-  brew update
-  brew install zsh git curl wget gvim tmux
-elif [[ $linux -eq 1 ]]; then
-  sudo pacman -Syu
-  sudo pacman -S zsh git curl wget gvim tmux
-  installPacker
-else
-  sudo apt-get update
-  sudo apt-get install zsh git curl wget gvim tmux
-fi
+echo -e "Updating then installing zsh wget curl git gvim & tmux...\n"
+sudo pacman -Syu
+sudo pacman -S zsh git curl wget gvim tmux
 
 #clone the repo into users home dir
 cloneRepo
@@ -148,17 +65,13 @@ ohmyzsh
 echo -e "Symlinking vimrc, zshrc, tmux.conf and such to HOME...\n"
 mv $HOME/.zshrc $HOME/.zshrc.bak #remove original zshrc
 
-if [[ $os -eq 0 ]]; then
-  ln -s $HOME/.dotfiles/.zshrc_osx $HOME/.zshrc
-  ln -s $HOME/.dotifles/.tmux_osx.conf $HOME/.tmux.conf
-else
-  ln -s $HOME/.dotfiles/.zshrc_linux $HOME/.zshrc
-  ln -s $HOME/.dotfiles/.tmux_linux.conf $HOME/.tmux.conf
-fi
-
-ln -s $HOME/.dotfiles/.zsh_aliases $HOME/.zsh_aliases
-ln -s $HOME/.dotfiles/.vimrc $HOME/.vimrc
-ln -s $HOME/.dotfiles/.tmux $HOME/.tmux
+ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
+ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
+ln -s $HOME/.dotfiles/zsh_aliases $HOME/.zsh_aliases
+ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc
+ln -s $HOME/.dotfiles/tmux $HOME/.tmux
+ln -s $HOME/.dotfiles/Xresources $HOME/.Xresources
+ln -s $HOME/.dotfiles/irssi $HOME/.irssi
 
 mkdir -p $HOME/.vim/tmp $HOME/.vim/backups
 
@@ -170,20 +83,14 @@ git config --global user.email $email
 
 #install pianobar and save configurationG
 echo -e "Installing pianobar...\n"
-if [[ $os -eq 0 ]]; then
-  osxPianobar
-elif [[ $linux -eq 2 ]]; then  #UBUNTU
-  ubuPianobar
-else
-  echo -e "Installing pb in arch\n"
-  archPB
-  archPianobar
-fi
+archPB
+archPianobar
 
 echo -e "Creating pianobar config...\n"
 read -p "Enter your pandora email address: " pandMail
-read -p "Enter your pandora password: " pandPass
+read -s -p "Enter your pandora password: " pandPass
 mkdir -p $HOME/.config/pianobar/ && touch $HOME/.config/pianobar/config
+echo "" > $HOME/.config/pianobar/config
 echo "user = $pandMail" >> $HOME/.config/pianobar/config
 echo "password = $pandPass" >> $HOME/.config/pianobar/config
 
@@ -192,21 +99,5 @@ echo -e "Installing Vundle and running BundleInstall for vim plugins...\n"
 git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 vim +BundleInstall +qall
 
-#YCM BUILD AND POWERLINE INSTALLATION - CURRENTLY NOT AUTOMATED IN OSX DUE TO GOOFY PYTHON ISSUS WITH HOMEBREW / SYSTEM
-if [[ $os -ne 0 ]]; then
-  if [[ $linux -eq 2 ]]; then  #UBUNTU - currently disabled as ubuntus vim is behind and requires manual build
-    ubuVim
-    ubuYCM
-    echo -e "YCM complete, now installing powerline and its fonts...\n"
-    ubuPowerline
-  else
-    #ARCH
-    ehco -e "Installing powerline...\n"
-    archPowerline
-  fi
-fi
-
-#ip tables to prevent a good bit of bullshit ISP throttling
-#echo -e "Adding ISP throttling IP to iptables...\n"
-#sudo iptables -A INPUT -s 173.194.55.0/24 -j DROP
-#sudo iptables -A INPUT -s 206.111.0.0/16 -j DROP
+ehco -e "Installing powerline...\n"
+archPowerline

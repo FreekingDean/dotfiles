@@ -1,0 +1,1 @@
+/home/jake/.irssi/scripts/nicklist.pl
