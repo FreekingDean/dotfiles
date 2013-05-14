@@ -10,8 +10,6 @@ if [ "$TMUX" = "" ]; then tmux; fi
 
 #Aliases
 alias gob="go build"
-alias git="hub"
-alias sudo="nocorrect sudo"
 alias irssi="TERM=screen-256color irssi" #fix for the xterm fix above with xfce4term and irssi buffer
 
 # Suffix Aliases - open filetypes with program of choice
@@ -33,4 +31,6 @@ source $HOME/.zsh_aliases
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 # RBENV
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

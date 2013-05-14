@@ -26,16 +26,22 @@ servers = (
   {
     address = "irc.freenode.net";
     chatnet = "Freenode";
-    port = "7000";
-    use_ssl = "yes";
-    ssl_verify = "yes";
-    ssl_capath = "/etc/ssl/certs";
+    port = "8001";
+    use_ssl = "no";
+    ssl_verify = "no";
     autoconnect = "yes";
   }
 );
 
 chatnets = {
   IRCnet = {
+    type = "IRC";
+    max_kicks = "4";
+    max_msgs = "5";
+    max_whois = "4";
+    max_query_chans = "5";
+  };
+  Freenode = {
     type = "IRC";
     max_kicks = "4";
     max_msgs = "5";
@@ -97,16 +103,14 @@ chatnets = {
     max_whois = "30";
   };
   SILC = { type = "SILC"; };
-  Freenode = {
-    type = "IRC";
-    autosendcmd = "/msg nickserv identify galvin ;wait 2000";
-  };
+  "irc.freenode.net" = { type = "IRC"; autosendcmd = "Freenode"; };
+  OTFC = { type = "IRC"; };
 };
 
 channels = (
-  { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
-  { name = "silc"; chatnet = "silc"; autojoin = "No"; },
-  { name = "#orderdeck"; chatnet = "Freenode"; autojoin = "yes"; }
+  { name = "#orderdeck"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#rails"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#archlinux"; chatnet = "Freenode"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -160,6 +164,8 @@ aliases = {
 };
 
 statusbar = {
+  #sb_default_bg = %4;
+
   # formats:
   # when using {templates}, the template is shown only if it's argument isn't
   # empty unless no argument is given. for example {sb} is printed always,
@@ -268,15 +274,31 @@ statusbar = {
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
   core = {
     real_name = "Dean Galvin";
-    user_name = "deangalvin";
-    nick = "bananaboydean";
+    user_name = "bananaboy_desktop";
+    nick = "bananaboy_desktop";
   };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { autolog = "yes"; };
+  "fe-common/core" = {
+    theme = "screwer-redux";
+    bell_beeps = "yes";
+    beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
+  };
+  "perl/core/scripts" = { nicklist_height = "10"; nicklist_width = "10"; };
 };
-hilights = ( { text = "nick"; nick = "yes"; word = "yes"; } );
+keyboard = (
+  { key = "meta-d"; id = "command"; data = "quit"; },
+  { key = "^d"; id = "command"; data = "quit"; },
+  { key = "^D"; id = "command"; data = "quit"; }
+);
