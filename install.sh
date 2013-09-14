@@ -5,23 +5,6 @@
 
 ####FUNCTIONS####
 
-#arch pianobar-git install
-archPB() {
-  mkdir $HOME/pb_build && cd $HOME/pb_build
-  curl -L https://aur.archlinux.org/packages/pi/pianobar-git/pianobar-git.tar.gz > pianobar-git.tar.gz
-  tar -xf pianobar-git.tar.gz
-  cd pianobar-git
-  makepkg -si
-  cd $HOME
-  rm -rf $HOME/pb_build
-  echo -e "Pianobar installed... \n"
-}
-
-archPianobar() {
-  sudo mv /etc/libao.conf /etc/liba.conf.bak
-  sudo echo "default_driver=pulse" > /etc/libao.conf
-}
-
 #arch python2-powerline-git install
 archPowerline() {
   mkdir $HOME/pl_build && cd $HOME/pl_build
@@ -80,19 +63,6 @@ read -p "Enter your name (full name): " name
 read -p "Enter your git email address: " email
 git config --global user.name $name
 git config --global user.email $email
-
-#install pianobar and save configurationG
-echo -e "Installing pianobar...\n"
-archPB
-archPianobar
-
-echo -e "Creating pianobar config...\n"
-read -p "Enter your pandora email address: " pandMail
-read -s -p "Enter your pandora password: " pandPass
-mkdir -p $HOME/.config/pianobar/ && touch $HOME/.config/pianobar/config
-echo "" > $HOME/.config/pianobar/config
-echo "user = $pandMail" >> $HOME/.config/pianobar/config
-echo "password = $pandPass" >> $HOME/.config/pianobar/config
 
 #Vundle installation and plugin install from vimrc
 echo -e "Installing Vundle and running BundleInstall for vim plugins...\n"
