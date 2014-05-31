@@ -10,7 +10,7 @@ archPowerline() {
   mkdir $HOME/pl_build && cd $HOME/pl_build
   curl -L https://aur.archlinux.org/packages/py/python2-powerline-git/python2-powerline-git.tar.gz > python2-powerline-git.tar.gz
   tar -xf python2-powerline-git.tar.gz 
-  cd python2-powerline-git
+  cd powerline
   makepkg -si
   cd $HOME
   rm -rf $HOME/pl_build

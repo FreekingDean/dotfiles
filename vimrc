@@ -14,6 +14,7 @@ call vundle#rc()
  Bundle 'tpope/vim-haml'
  Bundle 'tpope/vim-surround'
  Bundle 'pangloss/vim-javascript'
+ Bundle 'kchmck/vim-coffee-script'
 " Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on "req
@@ -35,18 +36,29 @@ set encoding=utf-8
 set laststatus=2
 set term=screen-256color
 "disable arrow keys / ctrl + hjkl window swap
-"map <up> <nop>
-"map <down> <nop>
-"map <left> <nop>
-"map <right> <nop>
-"map <C-h> <C-w>h
-"map <C-j> <C-w>j
-"map <C-k> <C-w>k
-"map <C-l> <C-w>l
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 map ;; <Esc>:
+map <C-K> <C-W>k<C-W>_
+map <C-K> <C-W>j<C-W>_
 
 if has('gui_running')
   set guifont=Inconsolata:h13    " set fonts for gui vim
   set transparency=5             " set transparent window
   set guioptions=egmrt           " hide the gui menubar
 endif
+
+let mapleader=","
+
+map <leader>t :w\|!rspec --drb --color %<cr>
+
+au BufRead,BufNewFile *.pde set filetype=arduino
+au BufRead,BufNewFile *.ino set filetype=arduino
+au BufRead,BufNewFile *.go set filetype=go
+set rtp+=/home/bananaboy/.local/lib/python2.7/site-packages/powerline/bindings/vim

@@ -3,18 +3,18 @@
 # Split pane 0 & open portfolio
 select-pane -t 0
 send -t 0 
-send-keys -t 0 "cd Projects/portfolio" C-m
+send-keys -t 0 "cd Work" C-m
 split-window -v -p 22
 
 # Split Pane 1 & start rails server
 select-pane -t 1
 split-window -h -p 90
-send-keys -t 1 "cd Projects/portfolio && rails s" C-m
+send-keys -t 1 "cd Work" C-m
 
 # Split Pane 2 & open guard
 select-pane -t 2
 split-window -h -p 50
-send-keys -t 2 "cd Projects/portfolio && guard" C-m
+send-keys -t 2 "cd Work" C-m
 
 # Open weechat on pane 3
 send -t 3 irssi ENTER

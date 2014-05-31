@@ -30,6 +30,14 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
+  },
+  {
+    address = "199.9.252.26";
+    chatnet = "Twitch";
+    password = "oauth:d6p4tg7kxb6pi7kbuireykoi0wmctot";
+    port = "6667";
+    use_ssl = "no";
+    autoconnect = "yes";
   }
 );
 
@@ -42,6 +50,13 @@ chatnets = {
     max_query_chans = "5";
   };
   Freenode = {
+    type = "IRC";
+    max_kicks = "4";
+    max_msgs = "5";
+    max_whois = "4";
+    max_query_chans = "5";
+  };
+  Twitch = {
     type = "IRC";
     max_kicks = "4";
     max_msgs = "5";
@@ -108,9 +123,8 @@ chatnets = {
 };
 
 channels = (
-  { name = "#orderdeck"; chatnet = "Freenode"; autojoin = "Yes"; },
-  { name = "#rails"; chatnet = "Freenode"; autojoin = "Yes"; },
-  { name = "#archlinux"; chatnet = "Freenode"; autojoin = "Yes"; }
+  { name = "#rowancsc"; chatnet = "Freenode"; autojoin = "Yes"; },
+  { name = "#orderdeck"; chatnet = "Freenode"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -161,6 +175,7 @@ aliases = {
   ATAG = "WINDOW SERVER";
   UNSET = "set -clear";
   RESET = "set -default";
+  "hidelevels.set" = "set activity_hide_level parts joins quits nicks modes";
 };
 
 statusbar = {
@@ -286,8 +301,8 @@ statusbar = {
 settings = {
   core = {
     real_name = "Dean Galvin";
-    user_name = "bananaboy_desktop";
-    nick = "bananaboy_desktop";
+    user_name = "bananaboydean";
+    nick = "bananaboydean";
   };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = {
@@ -301,4 +316,82 @@ keyboard = (
   { key = "meta-d"; id = "command"; data = "quit"; },
   { key = "^d"; id = "command"; data = "quit"; },
   { key = "^D"; id = "command"; data = "quit"; }
+);
+ignores = (
+  {
+    level = "JOINS PARTS QUITS MODES NICKS";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "a";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "/^up$/";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "/^up$/";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    mask = "/^up$/";
+    level = "ALL";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "/^up$/";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "up";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "down";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "left";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "right";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "b";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "democracy";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  },
+  {
+    level = "ALL";
+    pattern = "anarchy";
+    regexp = "yes";
+    channels = ( "#twitchplayspokemon" );
+  }
 );
