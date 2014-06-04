@@ -44,9 +44,12 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-map ;; <Esc>:
 map <C-K> <C-W>k<C-W>_
 map <C-K> <C-W>j<C-W>_
+
+"Map ;; to <Esc>:'
+imap ;; <Esc>:
+map ;; <Esc>:
 
 if has('gui_running')
   set guifont=Inconsolata:h13    " set fonts for gui vim
@@ -54,8 +57,16 @@ if has('gui_running')
   set guioptions=egmrt           " hide the gui menubar
 endif
 
-let mapleader=","
+"Highlight trailing whitespace in red
+:highlight ExtraWhitespace ctermbg=red guibg=red
+:au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+:au InsertLeave * match ExtraWhitespace /\s\+$/
+:match ExtraWhitespace /\s\+$/           " Show trailing whitespace
+:match ExtraWhitespace /\s\+$\| \+\ze\t/ " Show trailing whitespace and spaces before a tab
+:match ExtraWhitespace /[^\t]\zs\t\+/    " Show tabs that are not at the start of a line
 
+"Auto Rspec on <,+t>
+let mapleader=","
 map <leader>t :w\|!rspec --drb --color %<cr>
 
 au BufRead,BufNewFile *.pde set filetype=arduino
