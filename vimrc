@@ -13,9 +13,11 @@ call vundle#rc()
  Bundle 'tpope/vim-rails'
  Bundle 'tpope/vim-haml'
  Bundle 'tpope/vim-surround'
+ Bundle 'fatih/vim-go'
+ Bundle 'janko-m/vim-test'
  Bundle 'pangloss/vim-javascript'
  Bundle 'kchmck/vim-coffee-script'
-" Bundle 'Lokaltog/vim-powerline'
+ Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 filetype plugin indent on "req
 
@@ -67,7 +69,8 @@ endif
 
 "Auto Rspec on <,+t>
 let mapleader=","
-map <leader>t :w\|!rspec --drb --color %<cr>
+nmap <silent> <leader>t :TestFile<cr>
+nmap <silent> <leader>g :TestNearest<cr>
 
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
