@@ -1,0 +1,11 @@
+#Conky Setup by http://www.bananaboy.com
+[Desktop Entry]
+Type=Application
+Exec=/home/bananaboy/.start-conky
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=start-conky.desktop
+Name=conky
+Comment[en_US]=Conky setup by Noobslab.com
+Comment=Conky setup by Noobslab.com

@@ -1,0 +1,20 @@
+# left mon right mon
+
+# Split pane 0 & open portfolio
+select-pane -t 0
+send -t 0 
+split-window -v -p 50
+
+# Split Pane 1 & start rails server
+select-pane -t 1
+split-window -h -p 90
+
+# Split Pane 2 & open guard
+select-pane -t 2
+split-window -h -p 50
+
+# Open weechat on pane 3
+send -t 3 irssi ENTER
+
+#select top pane
+select-pane -t 0
