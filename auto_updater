@@ -5,6 +5,7 @@ check_for_updates() {
     echo "Pushing..."
     git --git-dir=$HOME/.dotfiles/.git add -u
     git --git-dir=$HOME/.dotfiles/.git commit -m "dotfile update $(date +'%m/%d/%Y %H:%M:%S') from $(cat /etc/hostname) $(uname)"
+    git --git-dir=$HOME/.dotfiles/.git pull
     git --git-dir=$HOME/.dotfiles/.git push
   elif [[ "$GIT_STATUS" == *"Your branch is behind 'origin/master'"* ]]; then
     echo "Updating dotfiles..."
