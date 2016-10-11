@@ -14,11 +14,12 @@ call vundle#rc()
  Bundle 'tpope/vim-haml'
  Bundle 'tpope/vim-surround'
  Bundle 'fatih/vim-go'
+ Bundle 'janko-m/vim-test'
  Bundle 'pangloss/vim-javascript'
  Bundle 'kchmck/vim-coffee-script'
+ Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
  Bundle 'elixir-lang/vim-elixir'
  Bundle 'Valloric/YouCompleteMe'
-" Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on "req
 
@@ -73,16 +74,12 @@ endif
 
 "Auto Rspec on <,+t>
 let mapleader=","
-map <leader>t :w\|!rspec --color %<cr>
 
 "Run go prgm on <,+g+r>
 map<leader>gr :w\|!go run %<cr>
 
-"html2haml & back
-nmap <leader>h :%!html2haml --erb 2> /dev/null<CR>:set ft=haml<CR>
-vmap <leader>h :!html2haml --erb 2> /dev/null<CR>
-nmap <leader>e :%!haml2erb 2> /dev/null<CR>:set ft=eruby<CR>
-vmap <leader>e :!haml2erb 2> /dev/null<CR>
+nmap <silent> <leader>t :TestFile<cr>
+nmap <silent> <leader>g :TestNearest<cr>
 
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino

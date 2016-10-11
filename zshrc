@@ -11,7 +11,7 @@ if [ "$TMUX" = "" ]; then tmux; fi
 #Aliases
 alias irssi="TERM=screen-256color irssi" #fix for the xterm fix above with xfce4term and irssi buffer
 alias trash="mv --target-directory=$HOME/.Trash"
-alias fuck='$(thefuck $(fc -ln -1))'
+source ~/.zsh_aliases
 
 #oh-my-zsh plugins
 plugins=(git github vundle rbenv ruby rails encode64 tmux golang archlinux systemd)
@@ -21,6 +21,8 @@ export LANG=en_US.UTF-8
 
 
 export PATH=$PATH:$GOPATH/bin:$HOME
+
+export SSL_CERT_FILE='/etc/openssl/cacert.pem'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
