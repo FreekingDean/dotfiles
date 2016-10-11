@@ -1,9 +1,0 @@
-set bell_beeps ON
-set beep_msg_level MSGS NOTICES DCC DCCMSGS HILIGHT
-statusbar window remove act
-set awl_display_header Channels
-set awl_placement top
-load perl
-nicklist fifo
-bind ^d command quit
-bind ^D command quit
