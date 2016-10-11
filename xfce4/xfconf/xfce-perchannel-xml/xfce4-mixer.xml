@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="xfce4-mixer" version="1.0">
-  <property name="sound-card" type="string" value="PlaybackGK107HDMIAudioControllerDigitalStereoHDMIPulseAudioMixer"/>
+  <property name="sound-card" type="string" value="HDAIntelPCHAlsamixer"/>
   <property name="sound-cards" type="empty">
     <property name="HDAIntelPCHAlsamixer" type="array">
       <value type="string" value="Master"/>
@@ -30,6 +30,11 @@
     </property>
     <property name="PlaybackBuiltinAudioAnalogStereoPulseAudioMixer" type="array">
       <value type="string" value="Master"/>
+    </property>
+    <property name="LogitechG430GamingHeadsetAlsamixer" type="array">
+      <value type="string" value="Headphone"/>
+      <value type="string" value="Microphone"/>
+      <value type="string" value="Microphone Capture"/>
     </property>
   </property>
   <property name="window-height" type="int" value="497"/>

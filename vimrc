@@ -13,8 +13,11 @@ call vundle#rc()
  Bundle 'tpope/vim-rails'
  Bundle 'tpope/vim-haml'
  Bundle 'tpope/vim-surround'
+ Bundle 'fatih/vim-go'
  Bundle 'pangloss/vim-javascript'
  Bundle 'kchmck/vim-coffee-script'
+ Bundle 'elixir-lang/vim-elixir'
+ Bundle 'Valloric/YouCompleteMe'
 " Bundle 'Lokaltog/vim-powerline'
 
 filetype plugin indent on "req
@@ -53,7 +56,7 @@ map ;; <Esc>:
 
 if has('gui_running')
   set guifont=Inconsolata:h13    " set fonts for gui vim
-  set transparency=5             " set transparent window
+  "set transparency=5             " set transparent window
   set guioptions=egmrt           " hide the gui menubar
 endif
 
@@ -65,11 +68,24 @@ endif
 :match ExtraWhitespace /\s\+$\| \+\ze\t/ " Show trailing whitespace and spaces before a tab
 :match ExtraWhitespace /[^\t]\zs\t\+/    " Show tabs that are not at the start of a line
 
+"Add commands for sudo write
+:command SudoWrite w !sudo sh -c "cat >'%'"
+
 "Auto Rspec on <,+t>
 let mapleader=","
-map <leader>t :w\|!rspec --drb --color %<cr>
+map <leader>t :w\|!rspec --color %<cr>
+
+"Run go prgm on <,+g+r>
+map<leader>gr :w\|!go run %<cr>
+
+"html2haml & back
+nmap <leader>h :%!html2haml --erb 2> /dev/null<CR>:set ft=haml<CR>
+vmap <leader>h :!html2haml --erb 2> /dev/null<CR>
+nmap <leader>e :%!haml2erb 2> /dev/null<CR>:set ft=eruby<CR>
+vmap <leader>e :!haml2erb 2> /dev/null<CR>
 
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 au BufRead,BufNewFile *.go set filetype=go
+au BufRead,BufNewFile *.tl set filetype=turlang
 set rtp+=/home/bananaboy/.local/lib/python2.7/site-packages/powerline/bindings/vim

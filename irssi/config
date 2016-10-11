@@ -30,14 +30,6 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
-  },
-  {
-    address = "199.9.252.26";
-    chatnet = "Twitch";
-    password = "oauth:d6p4tg7kxb6pi7kbuireykoi0wmctot";
-    port = "6667";
-    use_ssl = "no";
-    autoconnect = "yes";
   }
 );
 
@@ -56,14 +48,7 @@ chatnets = {
     max_whois = "4";
     max_query_chans = "5";
   };
-  Twitch = {
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "5";
-    max_whois = "4";
-    max_query_chans = "5";
-  };
-  EFNet = { 
+  EFNet = {
     type = "IRC";
     max_kicks = "4";
     max_msgs = "3";
@@ -123,7 +108,6 @@ chatnets = {
 };
 
 channels = (
-  { name = "#rowancsc"; chatnet = "Freenode"; autojoin = "Yes"; },
   { name = "#orderdeck"; chatnet = "Freenode"; autojoin = "Yes"; }
 );
 

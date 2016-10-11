@@ -1,9 +1,9 @@
-# pane0:top |  pane1:rails s | pane2:guard | pane3:weechat
+# left mon right mon
 
 # Split pane 0 & open portfolio
 select-pane -t 0
 send -t 0 
-split-window -v -p 22
+split-window -v -p 50
 
 # Split Pane 1 & start rails server
 select-pane -t 1
