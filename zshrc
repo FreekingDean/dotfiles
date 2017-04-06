@@ -23,11 +23,18 @@ export GOPATH=$HOME/go
 
 export PATH=$PATH:$GOPATH/bin:$HOME
 
-export SSL_CERT_FILE='/etc/openssl/cacert.pem'
+#export SSL_CERT_FILE='/etc/openssl/cacert.pem'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+export EDITOR=vim
+
+# added by travis gem
+[ -f /Users/deangalvin/.travis/travis.sh ] && source /Users/deangalvin/.travis/travis.sh
+export HOMEBREW_GITHUB_API_TOKEN='5f1cf0c40f8650fdd905fe0e80525e3c1dc43675'
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="./bin:$PATH"

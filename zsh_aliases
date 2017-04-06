@@ -1,1 +1,3 @@
 alias rspec='rspec --color'
+alias gclone='sh $HOME/.dotfiles/helper_scripts/gclone.sh'
+alias asshole='ruby $HOME/.dotfiles/helper_scripts/asshole.rb'
