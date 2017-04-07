@@ -55,9 +55,9 @@ export GOPATH=$HOME/go
 export CLOUDSDK_PYTHON=/usr/bin/python2
 
 # The next line updates PATH for the Google Cloud SDK.
-source '/home/bananaboy/google-cloud-sdk/path.zsh.inc'
+# source '/home/bananaboy/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
-source '/home/bananaboy/google-cloud-sdk/completion.zsh.inc'
+# source '/home/bananaboy/google-cloud-sdk/completion.zsh.inc'
 
 update_dev_env
