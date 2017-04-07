@@ -26,8 +26,8 @@ def sync_upstream
   commit_help = []
   commit_help << untracked.map {|f| "New File: #{f.path}"}
   commit_help << updated.map {|f| "Updated: #{f.path}"}
-  hostname = `hostname`
-  uname = `uname`
+  hostname = `hostname`.strip
+  uname = `uname`.strip
   git_controller.commit("Update #{Time.now.strftime('%m/%d/%Y')} #{hostname} #{uname} \n#{commit_help.join("\n")}")
 end
 
