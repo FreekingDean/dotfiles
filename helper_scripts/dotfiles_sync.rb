@@ -23,7 +23,7 @@ def sync_upstream
   commit_help = []
   commit_help << untracked.map {|f| "New File: #{f.path}"}
   commit_help << updated.map {|f| "Updated: #{f.path}"}
-  git_controller.commit("Updated dotfiles\n#{commit_help.join("\n")}")
+  git_controller.commit("Update #{Time.now.strftime('%m/%d/%Y')} \n#{commit_help.join("\n")}")
 end
 
 def count_not_synced
