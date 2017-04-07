@@ -17,7 +17,6 @@ plugins=(git github vundle rbenv ruby rails encode64 tmux golang archlinux syste
 #locale settings
 export LANG=en_US.UTF-8
 
-
 export PATH=$PATH:$GOPATH/bin:$HOME
 
 #export SSL_CERT_FILE='/etc/openssl/cacert.pem'
@@ -31,7 +30,6 @@ export EDITOR=vim
 
 # added by travis gem
 [ -f /Users/deangalvin/.travis/travis.sh ] && source /Users/deangalvin/.travis/travis.sh
-export HOMEBREW_GITHUB_API_TOKEN='5f1cf0c40f8650fdd905fe0e80525e3c1dc43675'
 
 #rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -61,3 +59,5 @@ source '/home/bananaboy/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
 source '/home/bananaboy/google-cloud-sdk/completion.zsh.inc'
+
+update_dev_env
