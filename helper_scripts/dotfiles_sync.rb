@@ -2,12 +2,15 @@ require 'git'
 require 'awesome_print'
 
 def check_upstream_for_updates
-end
-
-def check_local_files_for_updates
   git_controller.remote("origin")
   git_controller.remote("origin").fetch
   git_controller.remote("origin")
+  require 'pry'
+  binding.pry
+end
+
+def check_local_files_for_updates
+  check_upstream_for_updates
   if count_not_synced > 0
     sync_upstream
   end
@@ -23,7 +26,9 @@ def sync_upstream
   commit_help = []
   commit_help << untracked.map {|f| "New File: #{f.path}"}
   commit_help << updated.map {|f| "Updated: #{f.path}"}
-  git_controller.commit("Update #{Time.now.strftime('%m/%d/%Y')} \n#{commit_help.join("\n")}")
+  hostname = `hostname`
+  uname = `uname`
+  git_controller.commit("Update #{Time.now.strftime('%m/%d/%Y')} #{hostname} #{uname} \n#{commit_help.join("\n")}")
 end
 
 def count_not_synced
