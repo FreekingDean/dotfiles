@@ -74,7 +74,7 @@ map ;; <Esc>:
 
 if has('gui_running')
   set guifont=Inconsolata:h13    " set fonts for gui vim
-  set transparency=5             " set transparent window
+  "set transparency=5             " set transparent window
   set guioptions=egmrt           " hide the gui menubar
 endif
 
@@ -85,6 +85,9 @@ endif
 :match ExtraWhitespace /\s\+$/           " Show trailing whitespace
 :match ExtraWhitespace /\s\+$\| \+\ze\t/ " Show trailing whitespace and spaces before a tab
 :match ExtraWhitespace /[^\t]\zs\t\+/    " Show tabs that are not at the start of a line
+
+"Add commands for sudo write
+:command SudoWrite w !sudo sh -c "cat >'%'"
 
 "Auto Rspec on <,+t>
 let mapleader=","
@@ -97,9 +100,13 @@ map <Leader>b :Tagbar<CR>
 nmap <silent> <leader>c :Gstatus<cr>
 nnoremap <leader>. :CtrlPTag<cr>
 
+"Run go prgm on <,+g+r>
+map<leader>gr :w\|!go run %<cr>
+
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 au BufRead,BufNewFile *.go set filetype=go
+au BufRead,BufNewFile *.tl set filetype=turlang
 set rtp+=/home/bananaboy/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
 let spring_exists = system('spring -v')

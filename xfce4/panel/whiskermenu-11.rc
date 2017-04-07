@@ -1,5 +1,5 @@
 favorites=exo-terminal-emulator.desktop,exo-file-manager.desktop,exo-mail-reader.desktop,exo-web-browser.desktop
-recent=exo-terminal-emulator.desktop,google-chrome.desktop,xfce-settings-manager.desktop,switchboard.desktop,xfce4-settings-editor.desktop,cheese.desktop,virtualbox.desktop,exo-file-manager.desktop,avahi-discover.desktop,zenmap.desktop
+recent=google-chrome.desktop,xfce-display-settings.desktop,exo-terminal-emulator.desktop,xfce-backdrop-settings.desktop,exo-web-browser.desktop,xfce4-settings-editor.desktop,firefox.desktop,steam.desktop,xfce-wmtweaks-settings.desktop,switchboard.desktop
 button-title=Applications Menu
 button-icon=/home/bananaboy/Downloads/arch start buttons by gabriela2400/start-here lp blue.png
 show-button-title=false
@@ -15,7 +15,7 @@ display-recent-default=false
 position-search-alternate=false
 position-commands-alternate=false
 menu-width=400
-menu-height=500
+menu-height=450
 command-settings=xfce4-settings-manager
 show-command-settings=true
 command-lockscreen=xflock4
