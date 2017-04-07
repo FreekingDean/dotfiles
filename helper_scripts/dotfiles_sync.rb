@@ -2,11 +2,7 @@ require 'git'
 require 'awesome_print'
 
 def check_upstream_for_updates
-  require 'pry'
-  binding.pry
-  git_controller.remote("origin")
-  git_controller.remote("origin").fetch
-  git_controller.remote("origin")
+  git_controller.pull
 end
 
 def check_local_files_for_updates
