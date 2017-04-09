@@ -1,9 +1,10 @@
+export PYTHONPATH=$(python --version | sed -rn 's/[Pp]ython\ ([[:digit:]]\.[[:digit:]])\.[[:digit:]]/python\1/p')
 #oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
 DEFAULT_USER="bananaboy"
 ZSH_THEME="clean"
-source $HOME/.dotfiles/auto_updater
-check_for_updates
+#source $HOME/.dotfiles/auto_updater
+#check_for_updates
 # (random) clean miloshadzic takashiyoshida sporty_256 sorin robbyrussell nicoulaj
 source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color #fix so tmux colors, and vim colors all play nice
@@ -18,11 +19,6 @@ plugins=(git github vundle rbenv ruby rails encode64 tmux golang archlinux syste
 
 #locale settings
 export LANG=en_US.UTF-8
-
-
-export PATH=$PATH:$GOPATH/bin:$HOME
-
-export SSL_CERT_FILE='/etc/openssl/cacert.pem'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -48,8 +44,9 @@ fi
 export GOPATH=$HOME/go
 export CLOUDSDK_PYTHON=/usr/bin/python2
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/home/bananaboy/google-cloud-sdk/path.zsh.inc'
+export PATH=$PATH:$GOPATH/bin:$HOME
 
-# The next line enables bash completion for gcloud.
-source '/home/bananaboy/google-cloud-sdk/completion.zsh.inc'
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="./bin:$PATH"
+export EDITOR=vim

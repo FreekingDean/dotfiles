@@ -86,3 +86,8 @@ au BufRead,BufNewFile *.ino set filetype=arduino
 au BufRead,BufNewFile *.go set filetype=go
 au BufRead,BufNewFile *.tl set filetype=turlang
 set rtp+=/home/bananaboy/.local/lib/python2.7/site-packages/powerline/bindings/vim
+
+set colorcolumn=+1        " highlight column after 'textwidth'
+set colorcolumn=+1,+2,+3  " highlight three columns after 'textwidth'
+highlight ColorColumn ctermbg=darkblue guibg=darkblue
+set colorcolumn=100
