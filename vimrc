@@ -1,32 +1,47 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" let Vundle manage Vundle
-" required! 
- Bundle 'gmarik/vundle'
- Bundle 'scrooloose/nerdtree'
- Bundle 'jistr/vim-nerdtree-tabs'
- Bundle 'tpope/vim-fugitive'
- Bundle 'tpope/vim-rails'
- Bundle 'tpope/vim-haml'
- Bundle 'tpope/vim-surround'
- Bundle 'fatih/vim-go'
- Bundle 'janko-m/vim-test'
- Bundle 'pangloss/vim-javascript'
- Bundle 'kchmck/vim-coffee-script'
- Bundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
- Bundle 'elixir-lang/vim-elixir'
- Bundle 'Valloric/YouCompleteMe'
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-filetype plugin indent on "req
+" let Vundle manage Vundle, required
+ Plugin 'VundleVim/Vundle.vim'
+
+ Plugin 'scrooloose/nerdtree'
+ Plugin 'jistr/vim-nerdtree-tabs'
+ Plugin 'tpope/vim-fugitive'
+ Plugin 'tpope/vim-rails'
+ Plugin 'tpope/vim-haml'
+ Plugin 'tpope/vim-surround'
+ Plugin 'fatih/vim-go'
+ Plugin 'thoughtbot/vim-rspec'
+ Plugin 'pangloss/vim-javascript'
+ Plugin 'kchmck/vim-coffee-script'
+ Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+ Plugin 'slim-template/vim-slim.git'
+ Plugin 'scrooloose/syntastic'
+ Plugin 'airblade/vim-gitgutter'
+ Plugin 'valloric/youcompleteme'
+ Plugin 'mileszs/ack.vim'
+ Plugin 'ctrlpvim/ctrlp.vim'
+ Plugin 'majutsushi/tagbar'
+ Plugin 'elixir-lang/vim-elixir'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 let g:Powerline_symbols = 'fancy'  "powerline fix for proper font disply
-"nerdtree displays without file specification and to close vim if only nerdtree open
-autocmd vimenter * if !argc() | NERDTree | endif
+"nerdtree starts always open
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" ctags optimization
+"set autochdir
+"set tags=tags;
 
 syntax enable
 set nu
@@ -39,6 +54,7 @@ set showmatch
 set encoding=utf-8
 set laststatus=2
 set term=screen-256color
+set clipboard=unnamed
 "disable arrow keys / ctrl + hjkl window swap
 map <up> <nop>
 map <down> <nop>
@@ -50,6 +66,11 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-K> <C-W>k<C-W>_
 map <C-K> <C-W>j<C-W>_
+"map <C-d> gf
+"map <C-e> :A<CR>
+"map <C-c> :R<CR>
+"set number
+"set relativenumber
 
 "Map ;; to <Esc>:'
 imap ;; <Esc>:
@@ -74,12 +95,17 @@ endif
 
 "Auto Rspec on <,+t>
 let mapleader=","
+" RSpec.vim mappings
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>g :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>b :Tagbar<CR>
+nmap <silent> <leader>c :Gstatus<cr>
+nnoremap <leader>. :CtrlPTag<cr>
 
 "Run go prgm on <,+g+r>
 map<leader>gr :w\|!go run %<cr>
-
-nmap <silent> <leader>t :TestFile<cr>
-nmap <silent> <leader>g :TestNearest<cr>
 
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
@@ -91,3 +117,11 @@ set colorcolumn=+1        " highlight column after 'textwidth'
 set colorcolumn=+1,+2,+3  " highlight three columns after 'textwidth'
 highlight ColorColumn ctermbg=darkblue guibg=darkblue
 set colorcolumn=100
+
+let spring_exists = system('spring -v')
+
+"Spring rspec
+"let g:rspec_command = '!spring rspec {spec}'
+let g:rspec_command = '!RAILS_ENV=test bundle exec rspec {spec} --color --profile'
+
+nmap \ :Ack!

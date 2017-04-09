@@ -1,4 +1,6 @@
 alias rspec='rspec --color'
+alias gclone='sh $HOME/.dotfiles/helper_scripts/gclone.sh'
+alias asshole='ruby $HOME/.dotfiles/helper_scripts/asshole.rb'
 alias fuck='$(thefuck $(fc -ln -1))'
 alias irssi="TERM=screen-256color irssi" #fix for the xterm fix above with xfce4term and irssi buffer
 alias trash="mv --target-directory=$HOME/.Trash"
