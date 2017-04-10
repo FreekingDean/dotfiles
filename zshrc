@@ -1,10 +1,15 @@
+export PYTHONPATH=$(python --version | sed -rn 's/[Pp]ython\ ([[:digit:]]\.[[:digit:]])\.[[:digit:]]/python\1/p')
+
 #oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
-DEFAULT_USER="bananaboy"
 ZSH_THEME="clean"
+source ~/.default_user
+
 # (random) clean miloshadzic takashiyoshida sporty_256 sorin robbyrussell nicoulaj
 source $ZSH/oh-my-zsh.sh
+
 export TERM=xterm-256color #fix so tmux colors, and vim colors all play nice
+
 # tmux on start with zsh
 if [ "$TMUX" = "" ]; then tmux; fi
 
@@ -12,14 +17,12 @@ if [ "$TMUX" = "" ]; then tmux; fi
 source ~/.zsh_aliases
 
 #oh-my-zsh plugins
-plugins=(git github vundle rbenv ruby rails encode64 tmux golang archlinux systemd)
+plugins=(git github vundle rbenv ruby rails encode64 tmux golang)
 
 #locale settings
 export LANG=en_US.UTF-8
 
 export PATH=$PATH:$GOPATH/bin:$HOME
-
-#export SSL_CERT_FILE='/etc/openssl/cacert.pem'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -61,3 +64,7 @@ export CLOUDSDK_PYTHON=/usr/bin/python2
 # source '/home/bananaboy/google-cloud-sdk/completion.zsh.inc'
 
 update_dev_env
+
+export EDITOR=vim
+
+source ~/.dotfiles/platform_loader

@@ -66,7 +66,7 @@ git config --global user.email $email
 
 #Vundle installation and plugin install from vimrc
 echo -e "Installing Vundle and running BundleInstall for vim plugins...\n"
-git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
+git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/Vundle.vim
 vim +BundleInstall +qall
 
 ehco -e "Installing powerline...\n"

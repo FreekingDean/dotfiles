@@ -31,6 +31,8 @@
       <property name="&lt;Super&gt;p" type="string" value="xfce4-display-settings --minimal"/>
       <property name="override" type="bool" value="true"/>
       <property name="&lt;Super&gt;t" type="string" value="xfce4-terminal"/>
+      <property name="XF86AudioRaiseVolume" type="string" value="amixer set Master 5%+"/>
+      <property name="XF86AudioLowerVolume" type="string" value="amixer set Master 5%-"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

@@ -1,12 +1,15 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
 
-" let Vundle manage Vundle
-" required!
- Plugin 'gmarik/vundle'
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+ Plugin 'VundleVim/Vundle.vim'
+
  Plugin 'scrooloose/nerdtree'
  Plugin 'jistr/vim-nerdtree-tabs'
  Plugin 'tpope/vim-fugitive'
@@ -27,7 +30,8 @@ call vundle#rc()
  Plugin 'majutsushi/tagbar'
  Plugin 'elixir-lang/vim-elixir'
 
-filetype plugin indent on "req
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 let g:Powerline_symbols = 'fancy'  "powerline fix for proper font disply
 "nerdtree starts always open
@@ -108,6 +112,11 @@ au BufRead,BufNewFile *.ino set filetype=arduino
 au BufRead,BufNewFile *.go set filetype=go
 au BufRead,BufNewFile *.tl set filetype=turlang
 set rtp+=/home/bananaboy/.local/lib/python2.7/site-packages/powerline/bindings/vim
+
+set colorcolumn=+1        " highlight column after 'textwidth'
+set colorcolumn=+1,+2,+3  " highlight three columns after 'textwidth'
+highlight ColorColumn ctermbg=darkblue guibg=darkblue
+set colorcolumn=100
 
 let spring_exists = system('spring -v')
 

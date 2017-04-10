@@ -1,0 +1,15 @@
+platform='unknown'
+unamestr=`uname`
+
+if [[ "$unamestr" == 'Linux' ]]; then
+   platform='archlinux'
+   #TODO add other linux support
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='darwin'
+fi
+
+if [[ $platform == 'darwin' ]]; then
+  source ~/.dotfiles/darwin_zshrc
+elif [[ $platform == 'archlinux' ]]; then
+  source ~/.dotfiles/archlinux_zshrc
+fi
