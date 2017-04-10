@@ -33,7 +33,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export EDITOR=vim
 
 # added by travis gem
-[ -f /Users/deangalvin/.travis/travis.sh ] && source /Users/deangalvin/.travis/travis.sh
+[ -f /Users/$DEFAULT_USER/.travis/travis.sh ] && source /Users/$DEFAULT_USER/.travis/travis.sh
 
 #rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -58,10 +58,10 @@ PATH=$PATH:$HOME/gsutil
 export CLOUDSDK_PYTHON=/usr/bin/python2
 
 # The next line updates PATH for the Google Cloud SDK.
-# source '/home/bananaboy/google-cloud-sdk/path.zsh.inc'
+# source '/home/$DEFAULT_USER/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
-# source '/home/bananaboy/google-cloud-sdk/completion.zsh.inc'
+# source '/home/$DEFAULT_USER/google-cloud-sdk/completion.zsh.inc'
 
 update_dev_env
 
