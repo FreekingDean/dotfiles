@@ -10,6 +10,7 @@ def check_local_files_for_updates
   if count_not_synced > 0
     sync_upstream
   end
+  git_controller.push
 end
 
 def git_controller
