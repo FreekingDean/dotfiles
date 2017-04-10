@@ -22,6 +22,7 @@ plugins=(git github vundle rbenv ruby rails encode64 tmux golang)
 #locale settings
 export LANG=en_US.UTF-8
 
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin:$HOME
 
 ### Added by the Heroku Toolbelt
@@ -46,15 +47,14 @@ PATH=$PATH:/opt/android-sdk/platform-tools:/opt/android-sdk/tools
 PATH=$PATH:$HOME/gsutil
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-if [ "$TERM" = "linux" ]; then
-    _SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'
-    for i in $(sed -n "$_SEDCMD" $HOME/.Xdefaults | \
-               awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}'); do
-        echo -en "$i"
-    done
-    clear
-fi
-export GOPATH=$HOME/go
+#if [ "$TERM" = "linux" ]; then
+#    _SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'
+#    for i in $(sed -n "$_SEDCMD" $HOME/.Xdefaults | \
+#               awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}'); do
+#        echo -en "$i"
+#    done
+#    clear
+#fi
 export CLOUDSDK_PYTHON=/usr/bin/python2
 
 # The next line updates PATH for the Google Cloud SDK.
