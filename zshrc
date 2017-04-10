@@ -1,4 +1,4 @@
-export PYTHONPATH=$(python --version | sed -rn 's/[Pp]ython\ ([[:digit:]]\.[[:digit:]])\.[[:digit:]]/python\1/p')
+export PYTHONPATH=$(python --version | sed -n 's/[Pp]ython\ ([[:digit:]]\.[[:digit:]])\.[[:digit:]]/python\1/p')
 
 #oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
