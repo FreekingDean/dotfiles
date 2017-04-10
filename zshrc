@@ -1,4 +1,4 @@
-export PYTHONPATH=$(python --version | sed -En 's/[Pp]ython\ ([\d*]\.[\d*])\.[\d*]/python\1/p')
+export PYTHONPATH=$(python -c 'import site; print(site.getsitepackages()[0])')
 
 #oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
