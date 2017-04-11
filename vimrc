@@ -89,6 +89,7 @@ endif
 :match ExtraWhitespace /\s\+$/           " Show trailing whitespace
 :match ExtraWhitespace /\s\+$\| \+\ze\t/ " Show trailing whitespace and spaces before a tab
 :match ExtraWhitespace /[^\t]\zs\t\+/    " Show tabs that are not at the start of a line
+:match ExtraWhitespace /\t+/    " Show tabs that are not at the start of a line
 
 "Add commands for sudo write
 :command SudoWrite w !sudo sh -c "cat >'%'"
