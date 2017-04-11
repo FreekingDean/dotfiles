@@ -35,6 +35,9 @@ export EDITOR=vim
 # added by travis gem
 [ -f /Users/$DEFAULT_USER/.travis/travis.sh ] && source /Users/$DEFAULT_USER/.travis/travis.sh
 
+#brew
+export PATH="/usr/local/sbin:$PATH"
+
 #rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
