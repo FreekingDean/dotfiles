@@ -120,4 +120,7 @@ let spring_exists = system('spring -v')
 "let g:rspec_command = '!spring rspec {spec}'
 let g:rspec_command = '!RAILS_ENV=test bundle exec rspec {spec} --color --profile'
 
+if has("gui_running")
+endif
+
 nmap \ :Ack!
