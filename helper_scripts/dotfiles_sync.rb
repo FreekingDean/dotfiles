@@ -2,7 +2,7 @@ require 'git'
 require 'awesome_print'
 
 def check_upstream_for_updates
-  git_controller.pull
+#  git_controller.pull
 end
 
 def check_local_files_for_updates
