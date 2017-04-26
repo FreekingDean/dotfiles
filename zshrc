@@ -70,6 +70,4 @@ update_dev_env
 
 export EDITOR=vim
 
-export PROMPT_COMMAND='PS1="`soji header`"'
-
 source ~/.dotfiles/platform_loader
