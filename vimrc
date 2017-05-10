@@ -29,6 +29,7 @@ call vundle#begin()
  Plugin 'ctrlpvim/ctrlp.vim'
  Plugin 'majutsushi/tagbar'
  Plugin 'elixir-lang/vim-elixir'
+ Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
