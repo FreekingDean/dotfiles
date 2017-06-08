@@ -30,6 +30,7 @@ call vundle#begin()
  Plugin 'majutsushi/tagbar'
  Plugin 'elixir-lang/vim-elixir'
  Plugin 'ryanoasis/vim-devicons'
+ Plugin 'floobits/floobits-vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
