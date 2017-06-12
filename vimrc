@@ -71,7 +71,7 @@ map <C-K> <C-W>j<C-W>_
 "map <C-e> :A<CR>
 "map <C-c> :R<CR>
 "set number
-"set relativenumber
+set relativenumber
 
 "Map ;; to <Esc>:'
 imap ;; <Esc>:
