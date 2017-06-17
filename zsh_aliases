@@ -5,6 +5,7 @@ alias fuck='$(thefuck $(fc -ln -1))'
 alias irssi="TERM=screen-256color irssi" #fix for the xterm fix above with xfce4term and irssi buffer
 alias trash="mv --target-directory=$HOME/.Trash"
 alias update_dev_env="$HOME/.dotfiles/helper_scripts/dev_env_update.sh"
+alias be="bundle exec"
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
