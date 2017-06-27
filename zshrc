@@ -69,6 +69,6 @@ export CLOUDSDK_PYTHON=/usr/bin/python2
 update_dev_env
 
 export EDITOR=vim
-export NPM_TOKEN=1833f371-e0d5-4067-89f2-c32e3f48b7a9
+source ~/.secretsrc
 
 source ~/.dotfiles/platform_loader
