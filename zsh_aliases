@@ -8,6 +8,7 @@ alias trash="mv --target-directory=$HOME/.Trash"
 alias update_dev_env="$HOME/.dotfiles/helper_scripts/dev_env_update.sh"
 alias be="bundle exec"
 alias pcat='pygmentize -g'
+alias gitrm='git branch -r | awk '{print $1}' | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d'
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
