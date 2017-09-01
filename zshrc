@@ -72,3 +72,4 @@ export EDITOR=vim
 source ~/.secretsrc
 
 source ~/.dotfiles/platform_loader
+#test
