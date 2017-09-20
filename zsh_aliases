@@ -9,6 +9,7 @@ alias update_dev_env="$HOME/.dotfiles/helper_scripts/dev_env_update.sh"
 alias be="bundle exec"
 alias pcat='pygmentize -g'
 alias gitrm='sh $HOME/.dotfiles/helper_scripts/git_rm.sh'
+alias rake='noglob rake'
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
