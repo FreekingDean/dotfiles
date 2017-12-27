@@ -1,16 +1,35 @@
-require 'git'
+require 'json'
 require 'awesome_print'
+
+TIME_TO_CHECK = 24 * 60 * 60 #Once per day
+
+def should_sync?
+  last_sync_time_string = File.read('$HOME/.dotfile_sync')
+  last_sync = Time.parse(last_sync_time_string).to_i || 0
+  Time.now.to_i > last_sync + TIME_TO_CHECK
+rescue StandardError
+  return true
+end
+
+def store_sync_time
+  File.open('$HOME/.dotfile_sync', 'w') do |f|
+    f.write(Time.now.to_s)
+  end
+end
 
 def check_upstream_for_updates
   git_controller.pull
 end
 
 def check_local_files_for_updates
+  return unless should_sync?
+  require 'git'
   check_upstream_for_updates
   if count_not_synced > 0
     sync_upstream
   end
   git_controller.push
+  store_sync_time
 end
 
 def git_controller
