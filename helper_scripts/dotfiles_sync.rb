@@ -3,8 +3,13 @@ require 'awesome_print'
 
 TIME_TO_CHECK = 24 * 60 * 60 #Once per day
 
+def file_path(path)
+  home_path = ENV['HOME'] || ENV['HOME_PATH']
+  File.join(home_path, path)
+end
+
 def should_sync?
-  last_sync_time_string = File.read('$HOME/.dotfile_sync')
+  last_sync_time_string = File.read(file_path('.dotfiles/.last_sync'))
   last_sync = Time.parse(last_sync_time_string).to_i || 0
   Time.now.to_i > last_sync + TIME_TO_CHECK
 rescue StandardError
@@ -12,7 +17,7 @@ rescue StandardError
 end
 
 def store_sync_time
-  File.write('~/.dotfiles/.last_sync', Time.now.to_s)
+  File.write(file_path('.dotfiles/.last_sync'), Time.now.to_s)
 end
 
 def check_upstream_for_updates
