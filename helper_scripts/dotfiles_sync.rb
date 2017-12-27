@@ -12,7 +12,7 @@ rescue StandardError
 end
 
 def store_sync_time
-  File.write('$HOME/.dotfile_sync', Time.now.to_s)
+  File.open('~/.dotfiles/.last_sync', Time.now.to_s, 0, "w")
 end
 
 def check_upstream_for_updates
