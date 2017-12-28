@@ -1,4 +1,5 @@
 require 'json'
+require 'time'
 require 'awesome_print'
 
 TIME_TO_CHECK = 24 * 60 * 60 #Once per day
@@ -12,8 +13,8 @@ def should_sync?
   last_sync_time_string = File.read(file_path('.dotfiles/.last_sync'))
   last_sync = Time.parse(last_sync_time_string).to_i || 0
   Time.now.to_i > last_sync + TIME_TO_CHECK
-rescue StandardError
-  return true
+rescue StandardError => ex
+  return false
 end
 
 def store_sync_time
