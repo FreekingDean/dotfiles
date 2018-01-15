@@ -55,7 +55,7 @@ set showmatch
 set encoding=utf-8
 set laststatus=2
 set term=screen-256color
-"set clipboard=unnamed
+set clipboard=unnamed
 "disable arrow keys / ctrl + hjkl window swap
 map <up> <nop>
 map <down> <nop>
