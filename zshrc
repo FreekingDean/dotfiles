@@ -50,6 +50,9 @@ PATH=$PATH:/opt/android-sdk/platform-tools:/opt/android-sdk/tools
 #added for gsutil
 PATH=$PATH:$HOME/gsutil
 
+#added for additional data
+PATH=$PATH:$HOME/.bin
+
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 #if [ "$TERM" = "linux" ]; then
 #    _SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'

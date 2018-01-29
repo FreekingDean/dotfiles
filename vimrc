@@ -5,31 +5,32 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
- Plugin 'VundleVim/Vundle.vim'
-
- Plugin 'scrooloose/nerdtree'
- Plugin 'jistr/vim-nerdtree-tabs'
- Plugin 'tpope/vim-fugitive'
- Plugin 'tpope/vim-rails'
- Plugin 'tpope/vim-haml'
- Plugin 'tpope/vim-surround'
- Plugin 'fatih/vim-go'
- Plugin 'thoughtbot/vim-rspec'
- Plugin 'pangloss/vim-javascript'
- Plugin 'kchmck/vim-coffee-script'
- Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
- Plugin 'slim-template/vim-slim.git'
- Plugin 'scrooloose/syntastic'
- Plugin 'airblade/vim-gitgutter'
- Plugin 'valloric/youcompleteme'
- Plugin 'mileszs/ack.vim'
- Plugin 'ctrlpvim/ctrlp.vim'
- Plugin 'majutsushi/tagbar'
- Plugin 'elixir-lang/vim-elixir'
- Plugin 'ryanoasis/vim-devicons'
+Plugin 'VundleVim/Vundle.vim'
+"
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-surround'
+Plugin 'fatih/vim-go'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'keith/rspec.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'slim-template/vim-slim.git'
+Plugin 'scrooloose/syntastic'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'valloric/youcompleteme'
+Plugin 'mileszs/ack.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
