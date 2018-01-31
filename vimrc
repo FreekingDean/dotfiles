@@ -9,7 +9,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-"
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-fugitive'
@@ -45,6 +45,9 @@ autocmd VimEnter * wincmd p
 "set autochdir
 "set tags=tags;
 
+set lazyredraw
+set regexpengine=1
+set ttyfast
 syntax enable
 set nu
 set ts=2
