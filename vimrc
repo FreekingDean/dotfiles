@@ -22,7 +22,7 @@ Plugin 'keith/rspec.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'slim-template/vim-slim.git'
+"Plugin 'slim-template/vim-slim.git'
 Plugin 'scrooloose/syntastic'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'valloric/youcompleteme'
