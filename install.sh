@@ -55,6 +55,8 @@ ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc
 ln -s $HOME/.dotfiles/tmux $HOME/.tmux
 ln -s $HOME/.dotfiles/Xresources $HOME/.Xresources
 ln -s $HOME/.dotfiles/irssi $HOME/.irssi
+ln -s $HOME/.dotfiles/khdrc $HOME/.khdrc
+ln -s $HOME/.dotfiles/chunkwmrc $HOME/.chunkwmrc
 
 mkdir -p $HOME/.vim/tmp $HOME/.vim/backups
 

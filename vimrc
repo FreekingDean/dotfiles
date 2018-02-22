@@ -31,6 +31,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'fielding/vim-chunkwm-navigator'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -129,3 +130,11 @@ if has("gui_running")
 endif
 
 nmap \ :Ack!
+
+"Vim-Tmux split nav
+let g:chunkwm_navigator_no_mappings = 1
+
+nnoremap <silent> <C-w>h :ChunkwmNavigateLeft<cr>
+nnoremap <silent> <C-w>j :ChunkwmNavigateDown<cr>
+nnoremap <silent> <C-w>k :ChunkwmNavigateUp<cr>
+nnoremap <silent> <C-w>l :ChunkwmNavigateRight<cr>
