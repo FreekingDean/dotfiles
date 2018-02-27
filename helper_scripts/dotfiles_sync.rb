@@ -26,13 +26,11 @@ def file_path(path)
 end
 
 def should_sync?
-  puts ARGV.inspect
   return true if ARGV[0] == '--force'
   last_sync_time_string = File.read(file_path('.dotfiles/.last_sync'))
   last_sync = Time.parse(last_sync_time_string).to_i || 0
   Time.now.to_i > last_sync + TIME_TO_CHECK
-rescue StandardError => ex
-  puts ex.inspect
+rescue StandardError
   return false
 end
 
