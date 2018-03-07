@@ -138,3 +138,6 @@ nnoremap <silent> <C-w>h :ChunkwmNavigateLeft<cr>
 nnoremap <silent> <C-w>j :ChunkwmNavigateDown<cr>
 nnoremap <silent> <C-w>k :ChunkwmNavigateUp<cr>
 nnoremap <silent> <C-w>l :ChunkwmNavigateRight<cr>
+
+" Set swapfiles to homedir
+set directory=$HOME/.vim/swapfiles//
