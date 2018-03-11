@@ -24,7 +24,6 @@ call vundle#begin()
  Plugin 'slim-template/vim-slim.git'
  Plugin 'scrooloose/syntastic'
  Plugin 'airblade/vim-gitgutter'
- Plugin 'valloric/youcompleteme'
  Plugin 'mileszs/ack.vim'
  Plugin 'ctrlpvim/ctrlp.vim'
  Plugin 'majutsushi/tagbar'
