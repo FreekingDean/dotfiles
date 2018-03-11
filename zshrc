@@ -1,4 +1,5 @@
-export PYTHONPATH=$(python -c 'import site; print(site.getsitepackages()[0])')
+#export PYTHONPATH=$(python -c 'import site; print(site.getsitepackages()[0])')
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages
 
 #oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
@@ -48,6 +49,9 @@ PATH=$PATH:/opt/android-sdk/platform-tools:/opt/android-sdk/tools
 
 #added for gsutil
 PATH=$PATH:$HOME/gsutil
+
+#added for additional data
+PATH=$PATH:$HOME/.bin
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 #if [ "$TERM" = "linux" ]; then

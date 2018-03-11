@@ -1,0 +1,40 @@
+# Reload Config
+cmd + alt + ctrl - r : khd -e "reload"
+
+# Modes
+khd mode chunkwm prefix on
+khd mode chunkwm timeout 0.5
+khd mode chunkwm on_enter chunkc border::color 0xff672121
+khd mode default on_enter chunkc border::color 0xffd75f5f
+
+# Toggle Modes
+ctrl - w -> : if \
+  [[ "$(chunkc tiling::query --window name)" != *"vim"* ]] && \
+  [[ "$(chunkc tiling::query --window name)" != *"fg"* ]]; \
+  then khd -e "mode activate chunkwm"; \
+  fi
+chunkwm - escape        :   khd -e "mode activate default"
+
+# Chunk mode
+
+## Warp Windows
+chunkwm + shift - h : chunkc tiling::window --warp west
+chunkwm + shift - j : chunkc tiling::window --warp south
+chunkwm + shift - k : chunkc tiling::window --warp north
+chunkwm + shift - l : chunkc tiling::window --warp east
+
+## Focus Windows
+chunkwm - h : chunkc tiling::window --focus west
+chunkwm - j : chunkc tiling::window --focus south
+chunkwm - k : chunkc tiling::window --focus north
+chunkwm - l : chunkc tiling::window --focus east
+
+## Change Layout
+chunkwm - e : chunkc tiling::desktop --layout bsp
+chunkwm - s : chunkc tiling::desktop --layout monocle
+chunkwm + shift - f : chunkc tiling::window --toggle float
+chunkwm - f : chunkc tiling::window --toggle fullscreen
+
+## Focus Monitor
+chunkwm + ctrl - l : chunkc tiling::monitor -f next
+chunkwm + ctrl - h : chunkc tiling::monitor -f prev

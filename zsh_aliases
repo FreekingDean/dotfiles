@@ -10,6 +10,7 @@ alias be="bundle exec"
 alias pcat='pygmentize -g'
 alias gitrm='sh $HOME/.dotfiles/helper_scripts/git_rm.sh'
 alias rake='noglob rake'
+alias update_gemfury='/usr/bin/ruby $HOME/.dotfiles/helper_scripts/update_gemfury_token.rb'
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward

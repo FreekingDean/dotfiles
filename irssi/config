@@ -34,13 +34,6 @@ servers = (
 );
 
 chatnets = {
-  IRCnet = {
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "5";
-    max_whois = "4";
-    max_query_chans = "5";
-  };
   Freenode = {
     type = "IRC";
     max_kicks = "4";
@@ -48,68 +41,20 @@ chatnets = {
     max_whois = "4";
     max_query_chans = "5";
   };
-  EFNet = { 
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "3";
-    max_whois = "1";
-  };
-  Undernet = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  DALnet = {
-    type = "IRC";
-    max_kicks = "4";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  QuakeNet = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  OFTC = { 
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  GameSurge = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  WebChat = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  Rizon = { 
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  LinkNet = {
-    type = "IRC";
-    max_kicks = "1";
-    max_msgs = "3";
-    max_whois = "30";
-  };
-  SILC = { type = "SILC"; };
-  "irc.freenode.net" = { type = "IRC"; autosendcmd = "Freenode"; };
-  OTFC = { type = "IRC"; };
+  IRCnet = { type = "IRC"; };
+  EFNet = { type = "IRC"; };
+  Undernet = { type = "IRC"; };
+  DALnet = { type = "IRC"; };
+  QuakeNet = { type = "IRC"; };
+  OFTC = { type = "IRC"; };
+  GameSurge = { type = "IRC"; };
+  WebChat = { type = "IRC"; };
+  Rizon = { type = "IRC"; };
+  LinkNet = { type = "IRC"; };
+  SILC = { type = "IRC"; };
 };
 
-channels = (
-  { name = "#orderdeck"; chatnet = "Freenode"; autojoin = "Yes"; }
-);
+channels = ( );
 
 aliases = {
   J = "join";
@@ -293,88 +238,9 @@ settings = {
     theme = "screwer-redux";
     beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
   };
-  "perl/core/scripts" = { nicklist_height = "10"; nicklist_width = "10"; };
 };
 keyboard = (
   { key = "meta-d"; id = "command"; data = "quit"; },
   { key = "^d"; id = "command"; data = "quit"; },
   { key = "^D"; id = "command"; data = "quit"; }
-);
-ignores = (
-  {
-    level = "JOINS PARTS QUITS MODES NICKS";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "a";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "/^up$/";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "/^up$/";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    mask = "/^up$/";
-    level = "ALL";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "/^up$/";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "up";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "down";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "left";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "right";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "b";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "democracy";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  },
-  {
-    level = "ALL";
-    pattern = "anarchy";
-    regexp = "yes";
-    channels = ( "#twitchplayspokemon" );
-  }
 );

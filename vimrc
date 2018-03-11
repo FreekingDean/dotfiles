@@ -5,30 +5,33 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
- Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
- Plugin 'scrooloose/nerdtree'
- Plugin 'jistr/vim-nerdtree-tabs'
- Plugin 'tpope/vim-fugitive'
- Plugin 'tpope/vim-rails'
- Plugin 'tpope/vim-haml'
- Plugin 'tpope/vim-surround'
- Plugin 'fatih/vim-go'
- Plugin 'thoughtbot/vim-rspec'
- Plugin 'pangloss/vim-javascript'
- Plugin 'kchmck/vim-coffee-script'
- Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
- Plugin 'slim-template/vim-slim.git'
- Plugin 'scrooloose/syntastic'
- Plugin 'airblade/vim-gitgutter'
- Plugin 'mileszs/ack.vim'
- Plugin 'ctrlpvim/ctrlp.vim'
- Plugin 'majutsushi/tagbar'
- Plugin 'elixir-lang/vim-elixir'
- Plugin 'ryanoasis/vim-devicons'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-surround'
+Plugin 'fatih/vim-go'
+Plugin 'thoughtbot/vim-rspec'
+Plugin 'keith/rspec.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+"Plugin 'slim-template/vim-slim.git'
+Plugin 'scrooloose/syntastic'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'valloric/youcompleteme'
+Plugin 'mileszs/ack.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'elixir-lang/vim-elixir'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'fielding/vim-chunkwm-navigator'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -43,6 +46,9 @@ autocmd VimEnter * wincmd p
 "set autochdir
 "set tags=tags;
 
+set lazyredraw
+set regexpengine=1
+set ttyfast
 syntax enable
 set nu
 set ts=2
@@ -124,3 +130,14 @@ if has("gui_running")
 endif
 
 nmap \ :Ack!
+
+"Vim-Tmux split nav
+let g:chunkwm_navigator_no_mappings = 1
+
+nnoremap <silent> <C-w>h :ChunkwmNavigateLeft<cr>
+nnoremap <silent> <C-w>j :ChunkwmNavigateDown<cr>
+nnoremap <silent> <C-w>k :ChunkwmNavigateUp<cr>
+nnoremap <silent> <C-w>l :ChunkwmNavigateRight<cr>
+
+" Set swapfiles to homedir
+set directory=$HOME/.vim/swapfiles//
