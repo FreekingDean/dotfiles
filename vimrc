@@ -1,47 +1,86 @@
-set nocompatible               " be iMproved
-filetype off                   " required!
+if !has('nvim')                " vim specific vs neovim below
+  set nocompatible             " be iMproved
 
-set rtp+=~/.vim/bundle/Vundle.vim
+  " install Vim-plug if not installed
+  if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+endif
 
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
+if has('nvim')
+  set mouse-=a                 " not ready for mouse use yet
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+  if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+endif
 
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-surround'
-Plugin 'fatih/vim-go'
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'keith/rspec.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
-"Plugin 'slim-template/vim-slim.git'
-Plugin 'scrooloose/syntastic'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'valloric/youcompleteme'
-Plugin 'mileszs/ack.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'fielding/vim-chunkwm-navigator'
-Plugin 'mxw/vim-jsx'
+let s:darwin = has('mac')
 
-call vundle#end()            " required
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs', {'on': 'NERDTreeToggle'}
+
+Plug 'vim-airline/vim-airline'
+Plug 'airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'tpope/vim-surround'
+
+Plug 'scrooloose/syntastic'
+Plug 'airblade/vim-gitgutter'
+Plug 'mileszs/ack.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+
+Plug 'tpope/vim-rails', {'for': 'ruby'}
+Plug 'tpope/vim-haml', {'for': 'ruby'}
+Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
+Plug 'kchmck/vim-coffee-script'
+
+Plug 'pangloss/vim-javascript', {'for': ['js', 'jsx', 'ruby']}
+Plug 'mxw/vim-jsx', {'for': ['js', 'jsx']}
+
+Plug 'fatih/vim-go', {'for': 'go'}
+
+Plug 'elixir-lang/vim-elixir', {'for': 'elixer'}
+
+if s:darwin
+  Plug 'fielding/vim-chunkwm-navigator'
+  Plug 'junegunn/vim-xmark'
+endif
+
+" https://github.com/junegunn/dotfiles/blob/master/vimrc
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --all
+  endif
+endfunction
+
+Plug 'Valloric/YouCompleteMe',          { 'do': function('BuildYCM') }
+
+" note taking and writing
+Plug 'rhysd/vim-grammarous',            { 'for': ['text', 'markdown'] }
+Plug 'beloglazov/vim-online-thesaurus', { 'for': ['text', 'markdown'] }
+
+call plug#end()
+
 filetype plugin indent on    " required
 
-let g:Powerline_symbols = 'fancy'  "powerline fix for proper font disply
+let g:airline_powerline_fonts = 1
+
 "nerdtree starts always open
 autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+"autocmd VimEnter * wincmd p
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " ctags optimization
 "set autochdir
@@ -60,7 +99,7 @@ set expandtab
 set showmatch
 set encoding=utf-8
 set laststatus=2
-set term=screen-256color
+"set term=screen-256color
 set clipboard=unnamed
 "disable arrow keys / ctrl + hjkl window swap
 map <up> <nop>

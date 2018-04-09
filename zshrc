@@ -1,6 +1,3 @@
-#export PYTHONPATH=$(python -c 'import site; print(site.getsitepackages()[0])')
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages
-
 #oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="clean"
@@ -31,7 +28,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
-export EDITOR=vim
+export EDITOR=nvim
 
 # added by travis gem
 [ -f /Users/$DEFAULT_USER/.travis/travis.sh ] && source /Users/$DEFAULT_USER/.travis/travis.sh
@@ -72,8 +69,6 @@ export CLOUDSDK_PYTHON=/usr/bin/python2
 
 update_dev_env
 
-export EDITOR=vim
 source ~/.secretsrc
 
 source ~/.dotfiles/platform_loader
-#test
