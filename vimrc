@@ -43,6 +43,7 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-rails', {'for': 'ruby'}
 Plug 'tpope/vim-haml', {'for': 'ruby'}
 Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
+Plug 'keith/rspec.vim', {'for': 'ruby'}
 Plug 'kchmck/vim-coffee-script'
 
 Plug 'pangloss/vim-javascript', {'for': ['js', 'jsx', 'ruby']}
@@ -52,10 +53,10 @@ Plug 'fatih/vim-go', {'for': 'go'}
 
 Plug 'elixir-lang/vim-elixir', {'for': 'elixer'}
 
-if s:darwin
+"if s:darwin
   Plug 'fielding/vim-chunkwm-navigator'
   Plug 'junegunn/vim-xmark'
-endif
+"endif
 
 " https://github.com/junegunn/dotfiles/blob/master/vimrc
 function! BuildYCM(info)
@@ -78,9 +79,8 @@ let g:airline_powerline_fonts = 1
 
 "nerdtree starts always open
 autocmd VimEnter * NERDTree
-"autocmd VimEnter * wincmd p
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd VimEnter * wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " ctags optimization
 "set autochdir
@@ -90,6 +90,7 @@ set lazyredraw
 set regexpengine=1
 set ttyfast
 syntax enable
+set nohlsearch
 set nu
 set ts=2
 set shiftwidth=2
@@ -183,4 +184,4 @@ nnoremap <silent> <C-w>l :ChunkwmNavigateRight<cr>
 set directory=$HOME/.vim/swapfiles//
 
 let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-let g:syntastic_go_checkers = ['gometalinter', 'golint', 'gotype', 'govet']
+let g:syntastic_go_checkers = ['golint']
