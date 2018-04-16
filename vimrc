@@ -66,6 +66,7 @@ function! BuildYCM(info)
 endfunction
 
 Plug 'Valloric/YouCompleteMe',          { 'do': function('BuildYCM') }
+Plug 'OmniSharp/omnisharp-vim'
 
 " note taking and writing
 Plug 'rhysd/vim-grammarous',            { 'for': ['text', 'markdown'] }
