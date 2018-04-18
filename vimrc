@@ -81,7 +81,7 @@ let g:airline_powerline_fonts = 1
 "nerdtree starts always open
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | en
 
 " ctags optimization
 "set autochdir
