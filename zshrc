@@ -34,7 +34,7 @@ export EDITOR=nvim
 [ -f /Users/$DEFAULT_USER/.travis/travis.sh ] && source /Users/$DEFAULT_USER/.travis/travis.sh
 
 #brew
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 #rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -59,7 +59,7 @@ PATH=$PATH:$HOME/.bin
 #    done
 #    clear
 #fi
-export CLOUDSDK_PYTHON=/usr/bin/python2
+#export CLOUDSDK_PYTHON=/usr/bin/python2
 
 # The next line updates PATH for the Google Cloud SDK.
 # source '/home/$DEFAULT_USER/google-cloud-sdk/path.zsh.inc'
