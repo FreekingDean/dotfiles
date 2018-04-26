@@ -42,7 +42,7 @@ Plug 'majutsushi/tagbar'
 
 Plug 'tpope/vim-rails', {'for': 'ruby'}
 Plug 'tpope/vim-haml', {'for': 'ruby'}
-Plug 'thoughtbot/vim-rspec', {'for': 'ruby'}
+Plug 'janko-m/vim-test', {'for': 'ruby'}
 Plug 'keith/rspec.vim', {'for': 'ruby'}
 Plug 'kchmck/vim-coffee-script'
 
@@ -145,10 +145,10 @@ endif
 "Auto Rspec on <,+t>
 let mapleader=","
 " RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>g :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>t :TestFile<CR>
+map <Leader>g :TestNearest<CR>
+map <Leader>l :TestLast<CR>
+map <Leader>a :TestSuite<CR>
 map <Leader>b :Tagbar<CR>
 nmap <silent> <leader>c :Gstatus<cr>
 nnoremap <leader>. :CtrlPTag<cr>
