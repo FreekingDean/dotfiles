@@ -13,6 +13,7 @@ alias rake='noglob rake'
 alias update_gemfury='/usr/bin/ruby $HOME/.dotfiles/helper_scripts/update_gemfury_token.rb'
 alias vim='nvim'
 alias vi='nvim'
+alias fossh="ssh $(AWS_PROFILE=sfinfra aws ec2 describe-instances --region us-east-1 --filters Name=tag:Name,Values=tf-ecs-main Name=instance-state-name,Values=running --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)"
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
