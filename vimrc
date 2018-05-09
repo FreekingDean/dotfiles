@@ -184,5 +184,5 @@ nnoremap <silent> <C-w>l :ChunkwmNavigateRight<cr>
 " Set swapfiles to homedir
 set directory=$HOME/.vim/swapfiles//
 
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+"let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_go_checkers = ['golint']
