@@ -23,3 +23,14 @@ ftfc ()
   sudo killall VDCAssistant;
   sudo killall AppleCameraAssistant
 }
+
+fixops() {
+  if [[ $@ =~ '(pg psql|postgres psql)' ]]
+  then
+    echo "HOOK"
+    command fixops $@
+    echo "UNHOOK"
+  else
+    command fixops $@
+  fi
+}
