@@ -48,7 +48,7 @@ PATH=$PATH:/opt/android-sdk/platform-tools:/opt/android-sdk/tools
 PATH=$PATH:$HOME/gsutil
 
 #added for additional data
-PATH=$PATH:$HOME/.bin
+PATH=$PATH:$HOME/.bin:$HOME/.bin/pact/bin
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 #if [ "$TERM" = "linux" ]; then
