@@ -160,7 +160,7 @@ au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 au BufRead,BufNewFile *.go set filetype=go
 au BufRead,BufNewFile *.tl set filetype=turlang
-set rtp+=/home/bananaboy/.local/lib/python2.7/site-packages/powerline/bindings/vim
+"set rtp+=/home/bananaboy/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
 let spring_exists = system('spring -v')
 

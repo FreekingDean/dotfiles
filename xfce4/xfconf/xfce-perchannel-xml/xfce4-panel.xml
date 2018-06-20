@@ -15,9 +15,6 @@
       <property name="background-style" type="uint" value="1"/>
       <property name="autohide-behavior" type="uint" value="0"/>
       <property name="nrows" type="uint" value="1"/>
-      <property name="plugin-ids" type="array">
-        <value type="int" value="1"/>
-      </property>
       <property name="background-color" type="array">
         <value type="uint" value="12850"/>
         <value type="uint" value="12850"/>
@@ -28,6 +25,5 @@
   </property>
   <property name="plugins" type="empty">
     <property name="plugin-11" type="string" value="whiskermenu"/>
-    <property name="plugin-1" type="string" value="power-manager-plugin"/>
   </property>
 </channel>
