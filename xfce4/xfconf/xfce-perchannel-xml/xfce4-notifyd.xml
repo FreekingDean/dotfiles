@@ -6,6 +6,7 @@
       <value type="string" value="chromium"/>
       <value type="string" value="KDE Connect"/>
       <value type="string" value="notify-send"/>
+      <value type="string" value="Studio"/>
       <value type="string" value="Xfce4-notifyd settings"/>
       <value type="string" value="xfce4-power-manager"/>
     </property>

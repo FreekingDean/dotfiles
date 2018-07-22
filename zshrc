@@ -69,6 +69,8 @@ PATH=$PATH:$HOME/.bin:$HOME/.bin/pact/bin
 
 update_dev_env
 
+ANDROID_HOME=$HOME/Android/Sdk
+
 source ~/.secretsrc
 
 source ~/.dotfiles/platform_loader

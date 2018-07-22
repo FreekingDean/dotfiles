@@ -14,4 +14,5 @@
   <property name="last-sort-order" type="string" value="GTK_SORT_DESCENDING"/>
   <property name="last-show-hidden" type="bool" value="true"/>
   <property name="last-side-pane" type="string" value="ThunarTreePane"/>
+  <property name="last-location-bar" type="string" value="ThunarLocationEntry"/>
 </channel>
