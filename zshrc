@@ -74,3 +74,4 @@ ANDROID_HOME=$HOME/Android/Sdk
 source ~/.secretsrc
 
 source ~/.dotfiles/platform_loader
+export GREP_OPTIONS="$GREP_OPTIONS --exclude-dir=.git --exclude-dir=coverage --exclude-dir=tmp --exclude-dir=vendor"
