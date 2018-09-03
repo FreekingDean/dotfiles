@@ -13,6 +13,7 @@ alias rake='noglob rake'
 alias update_gemfury='/usr/bin/ruby $HOME/.dotfiles/helper_scripts/update_gemfury_token.rb'
 alias vim='nvim'
 alias vi='nvim'
+alias grep="grep --exclude-dir=.git --exclude-dir=coverage --exclude-dir=tmp --exclude-dir=vendor --color=auto"
 
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward

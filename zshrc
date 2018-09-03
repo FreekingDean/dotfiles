@@ -1,7 +1,6 @@
 #oh-my-zsh
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="clean"
-source ~/.default_user
 
 # (random) clean miloshadzic takashiyoshida sporty_256 sorin robbyrussell nicoulaj
 source $ZSH/oh-my-zsh.sh
@@ -31,7 +30,7 @@ export PATH="/usr/local/heroku/bin:$PATH"
 export EDITOR=nvim
 
 # added by travis gem
-[ -f /Users/$DEFAULT_USER/.travis/travis.sh ] && source /Users/$DEFAULT_USER/.travis/travis.sh
+[ -f /Users/$USER/.travis/travis.sh ] && source /Users/$USER/.travis/travis.sh
 
 #brew
 export PATH="/usr/local/opt/python/libexec/bin:/usr/local/bin:/usr/local/sbin:$PATH"
@@ -48,7 +47,7 @@ PATH=$PATH:/opt/android-sdk/platform-tools:/opt/android-sdk/tools
 PATH=$PATH:$HOME/gsutil
 
 #added for additional data
-PATH=$PATH:$HOME/.bin:$HOME/.bin/pact/bin
+PATH=$PATH:$HOME/.bin:$HOME/.local/bin:$HOME/.bin/pact/bin
 
 [[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 #if [ "$TERM" = "linux" ]; then
@@ -62,10 +61,10 @@ PATH=$PATH:$HOME/.bin:$HOME/.bin/pact/bin
 #export CLOUDSDK_PYTHON=/usr/bin/python2
 
 # The next line updates PATH for the Google Cloud SDK.
-# source '/home/$DEFAULT_USER/google-cloud-sdk/path.zsh.inc'
+# source '/home/$USER/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables bash completion for gcloud.
-# source '/home/$DEFAULT_USER/google-cloud-sdk/completion.zsh.inc'
+# source '/home/$USER/google-cloud-sdk/completion.zsh.inc'
 
 update_dev_env
 
@@ -74,4 +73,3 @@ ANDROID_HOME=$HOME/Android/Sdk
 source ~/.secretsrc
 
 source ~/.dotfiles/platform_loader
-export GREP_OPTIONS="$GREP_OPTIONS --exclude-dir=.git --exclude-dir=coverage --exclude-dir=tmp --exclude-dir=vendor"
