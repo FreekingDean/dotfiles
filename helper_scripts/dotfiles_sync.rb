@@ -41,6 +41,9 @@ end
 
 def check_upstream_for_updates
   git_controller.pull
+rescue Git::GitExecuteError
+  puts "[DOTFILE SYNC] Could not reach git, aborting"
+  exit 0
 end
 
 def check_local_files_for_updates
