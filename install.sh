@@ -20,6 +20,7 @@ if [ "$PLATFORM" = "debian" ]; then
   PACKAGER_UPDATE="update"
   PACKAGER_UPGRADE="upgrade"
   PACKAGES="$PACKAGES python3 python3-pip libssl-dev libreadline-dev zlib1g-dev"
+  sudo cp /usr/bin/pip3 /usr/bin/pip
 elif [ "$PLATFORM" = "arch" ]; then
   PACKAGER="pacman --noconfirm"
   PACKAGER_INSTALL="-S"
@@ -88,7 +89,7 @@ installRBENV() {
   cd $HOME
   mkdir -p "$(rbenv root)"/plugins
   git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
-  rbenv install 2.5.1
+  ~/.rbenv/bin/rbenv install 2.5.1
 }
 
 setupNeoVim() {
@@ -120,22 +121,21 @@ installBasics() {
 }
 
 installGems() {
-  rbenv shell 2.5.1
+  ~/.rbenv/bin/rbenv shell 2.5.1
   gem install git
   gem install awesome_print
-  rbenv shell system
+  ~/.rbenv/bin/rbenv shell system
 }
 
 ####END FUNCTIONS####
 
 echo -e "PREPARE YOUR COMPUTER FOR SOME MOFUCKIN DOTS."
 
-#installBasics
-#setupGit
-#cloneRepo
-#ohmyzsh
-#installRBENV
-#setupNeoVim
+installBasics
+setupGit
+cloneRepo
+ohmyzsh
+installRBENV
+setupNeoVim
 installPowerline
-#installGems
-
+installGems
