@@ -24,17 +24,6 @@ ftfc ()
   sudo killall AppleCameraAssistant
 }
 
-fixops() {
-  if [[ $@ =~ '(pg psql|postgres psql)' ]]
-  then
-    echo "HOOK"
-    command fixops $@
-    echo "UNHOOK"
-  else
-    command fixops $@
-  fi
-}
-
 fossh() {
   ssh $(AWS_PROFILE=sfinfra aws ec2 describe-instances --region us-east-1 --filters Name=tag:Name,Values=tf-ecs-main Name=instance-state-name,Values=running --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)
 }
