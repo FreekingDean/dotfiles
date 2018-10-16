@@ -46,6 +46,8 @@ Plug 'janko-m/vim-test', {'for': 'ruby'}
 Plug 'keith/rspec.vim', {'for': 'ruby'}
 Plug 'kchmck/vim-coffee-script'
 
+Plug 'emilyst/vim-xray'
+
 Plug 'pangloss/vim-javascript', {'for': ['js', 'jsx', 'ruby']}
 Plug 'mxw/vim-jsx', {'for': ['js', 'jsx']}
 
