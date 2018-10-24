@@ -31,3 +31,7 @@ fossh() {
 fosshp() {
   ssh $(AWS_PROFILE=sfprod aws ec2 describe-instances --region us-east-1 --filters Name=tag:Name,Values=ecs-production-on_demand Name=instance-state-name,Values=running --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)
 }
+
+fosshs() {
+  ssh $(AWS_PROFILE=sfstage aws ec2 describe-instances --region us-east-1 --filters Name=tag:Name,Values=ecs-production-on_demand Name=instance-state-name,Values=running --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)
+}
