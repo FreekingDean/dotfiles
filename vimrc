@@ -51,7 +51,7 @@ Plug 'emilyst/vim-xray'
 Plug 'pangloss/vim-javascript', {'for': ['js', 'jsx', 'ruby']}
 Plug 'mxw/vim-jsx', {'for': ['js', 'jsx']}
 
-Plug 'fatih/vim-go', {'for': 'go'}
+Plug 'fatih/vim-go', {'for': 'go' }
 
 Plug 'elixir-lang/vim-elixir', {'for': 'elixer'}
 
@@ -61,13 +61,13 @@ Plug 'elixir-lang/vim-elixir', {'for': 'elixer'}
 "endif
 
 " https://github.com/junegunn/dotfiles/blob/master/vimrc
-function! BuildYCM(info)
-  if a:info.status == 'installed' || a:info.force
-    !./install.py --all
-  endif
-endfunction
+" function! BuildYCM(info)
+"   if a:info.status == 'installed' || a:info.force
+"     !./install.py --all
+"   endif
+" endfunction
 
-Plug 'Valloric/YouCompleteMe',          { 'do': function('BuildYCM') }
+"Plug 'Valloric/YouCompleteMe',          { 'do': function('BuildYCM') }
 Plug 'OmniSharp/omnisharp-vim'
 
 " note taking and writing

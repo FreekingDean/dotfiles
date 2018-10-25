@@ -15,6 +15,15 @@ alias vim='nvim'
 alias vi='nvim'
 alias grep="grep --exclude-dir=.git --exclude-dir=coverage --exclude-dir=tmp --exclude-dir=vendor --color=auto"
 
+# aws ()
+# {
+#   export AWS_SESSION_TOKEN=$(ruby $HOME/.dotfiles/helper_scripts/set_aws.rb)
+# }
+
+alias awsprod="AWS_PROFILE=sfprod aws"
+alias awsinfra="AWS_PROFILE=sfinfra aws"
+alias awsstage="AWS_PROFILE=sfstage aws"
+
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
@@ -24,14 +33,14 @@ ftfc ()
   sudo killall AppleCameraAssistant
 }
 
-fossh() {
+sshinfra() {
   ssh $(AWS_PROFILE=sfinfra aws ec2 describe-instances --region us-east-1 --filters Name=tag:Name,Values=tf-ecs-main Name=instance-state-name,Values=running --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)
 }
 
-fosshp() {
+sshprod() {
   ssh $(AWS_PROFILE=sfprod aws ec2 describe-instances --region us-east-1 --filters Name=tag:Name,Values=ecs-production-on_demand Name=instance-state-name,Values=running --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)
 }
 
-fosshs() {
+sshstage() {
   ssh $(AWS_PROFILE=sfstage aws ec2 describe-instances --region us-east-1 --filters Name=tag:Name,Values=ecs-production-on_demand Name=instance-state-name,Values=running --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)
 }

@@ -29,6 +29,15 @@ servers = (
     port = "8001";
     use_ssl = "no";
     ssl_verify = "no";
+    autoconnect = "no";
+  },
+  {
+    address = "127.0.0.1";
+    chatnet = "Orderdeck";
+    password = "xoxp-7097538181-7097494945-126724472082-9d8360ebbdd1e9287220174a2ea2925c";
+    port = "6666";
+    use_tls = "no";
+    tls_verify = "no";
     autoconnect = "yes";
   }
 );
@@ -52,6 +61,8 @@ chatnets = {
   Rizon = { type = "IRC"; };
   LinkNet = { type = "IRC"; };
   SILC = { type = "IRC"; };
+  StitchFix = { type = "IRC"; };
+  Orderdeck = { type = "IRC"; };
 };
 
 channels = ( );
