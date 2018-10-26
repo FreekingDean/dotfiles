@@ -8,7 +8,7 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color #fix so tmux colors, and vim colors all play nice
 
 # tmux on start with zsh
-if [ "$TMUX" = "" ]; then tmux; fi
+# if [ "$TMUX" = "" ]; then tmux; fi
 
 #Aliases
 source ~/.zsh_aliases

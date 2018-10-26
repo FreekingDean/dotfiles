@@ -142,7 +142,7 @@ endif
 
 
 "Add commands for sudo write
-:command SudoWrite w !sudo sh -c "cat >'%'"
+" :command SudoWrite w !sudo sh -c "cat >'%'"
 
 "Auto Rspec on <,+t>
 let mapleader=","
@@ -170,9 +170,6 @@ let spring_exists = system('spring -v')
 "let g:rspec_command = '!spring rspec {spec}'
 let g:rspec_command = '!RAILS_ENV=test bundle exec rspec {spec} --color --profile'
 
-if has("gui_running")
-endif
-
 nmap \ :Ack!
 
 "Vim-Tmux split nav
@@ -183,8 +180,18 @@ nnoremap <silent> <C-w>j :ChunkwmNavigateDown<cr>
 nnoremap <silent> <C-w>k :ChunkwmNavigateUp<cr>
 nnoremap <silent> <C-w>l :ChunkwmNavigateRight<cr>
 
+nnoremap <C-w>r :source $HOME/.vimrc<cr>
+
+nnoremap <C-w><C-w> :tabp<cr>
+map <C-w>c :tabe <bar> :term<cr>
+nnoremap <C-w>r :source $HOME/.vimrc<cr>
+nnoremap <C-w>z <C-w><bar><C-w>_
+
 " Set swapfiles to homedir
 set directory=$HOME/.vim/swapfiles//
 
 "let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:syntastic_go_checkers = ['golint']
+
+"Let <Esc> return to normal mode in term
+tnoremap <Esc> <C-\><C-n>
