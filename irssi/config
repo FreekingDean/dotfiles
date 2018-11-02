@@ -2,13 +2,13 @@ servers = (
   { address = "eu.irc6.net"; chatnet = "IRCnet"; port = "6667"; },
   { address = "open.ircnet.net"; chatnet = "IRCnet"; port = "6667"; },
   { address = "irc.efnet.org"; chatnet = "EFNet"; port = "6667"; },
-  { 
+  {
     address = "irc.undernet.org";
     chatnet = "Undernet";
     port = "6667";
   },
   { address = "irc.dal.net"; chatnet = "DALnet"; port = "6667"; },
-  { 
+  {
     address = "irc.quakenet.org";
     chatnet = "QuakeNet";
     port = "6667";
@@ -34,7 +34,7 @@ servers = (
   {
     address = "127.0.0.1";
     chatnet = "Orderdeck";
-    password = "xoxp-7097538181-7097494945-126724472082-9d8360ebbdd1e9287220174a2ea2925c";
+    password = "---";
     port = "6666";
     use_tls = "no";
     tls_verify = "no";
