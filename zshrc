@@ -73,3 +73,4 @@ ANDROID_HOME=$HOME/Android/Sdk
 source ~/.secretsrc
 
 source ~/.dotfiles/platform_loader
+export PATH="/usr/local/opt/node@8/bin:$PATH"
