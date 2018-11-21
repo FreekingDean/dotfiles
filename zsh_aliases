@@ -20,7 +20,7 @@ alias grep="grep --exclude-dir=.git --exclude-dir=coverage --exclude-dir=tmp --e
 #   export AWS_SESSION_TOKEN=$(ruby $HOME/.dotfiles/helper_scripts/set_aws.rb)
 # }
 
-alias awsprod="AWS_PROFILE=sfprod aws"
+alias awsprod="AWS_REGION=us-east-1 AWS_PROFILE=sfprod aws"
 alias awsinfra="AWS_PROFILE=sfinfra aws"
 alias awsstage="AWS_PROFILE=sfstage aws"
 
