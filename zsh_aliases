@@ -47,5 +47,5 @@ sshstage() {
 }
 
 forake() {
-  fixops run -a fixops-service -e i "fixops-ssm-env fixops-service bundle exec rake $1"
+  fixops run -a fixops-service -e i \"fixops-ssm-env fixops-service bundle exec rake $1\"
 }
