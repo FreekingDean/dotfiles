@@ -34,7 +34,8 @@ Plug 'tpope/vim-fugitive'
 
 Plug 'tpope/vim-surround'
 
-Plug 'scrooloose/syntastic'
+"Plug 'scrooloose/syntastic'
+Plug 'neomake/neomake'
 Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -191,7 +192,9 @@ nnoremap <C-w>z <C-w><bar><C-w>_
 set directory=$HOME/.vim/swapfiles//
 
 "let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-let g:syntastic_go_checkers = ['golint']
+"let g:syntastic_go_checkers = ['golint']
+call neomake#configure#automake('nrwi', 500)
+"let g:neomake_open_list = 2
 
 "Let <Esc> return to normal mode in term
 tnoremap <Esc> <C-\><C-n>
