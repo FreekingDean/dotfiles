@@ -62,11 +62,11 @@ Plug 'elixir-lang/vim-elixir', {'for': 'elixer'}
 "endif
 
 " https://github.com/junegunn/dotfiles/blob/master/vimrc
-" function! BuildYCM(info)
-"   if a:info.status == 'installed' || a:info.force
-"     !./install.py --all
-"   endif
-" endfunction
+function! BuildYCM(info)
+  if a:info.status == 'installed' || a:info.force
+    !./install.py --all
+  endif
+endfunction
 
 "Plug 'Valloric/YouCompleteMe',          { 'do': function('BuildYCM') }
 Plug 'OmniSharp/omnisharp-vim'
@@ -159,6 +159,9 @@ nnoremap <leader>. :CtrlPTag<cr>
 "Run go prgm on <,+g+r>
 map<leader>gr :w\|!go run %<cr>
 
+"Run ruby prgm on <,+g+r>
+map<leader>rr :w\|!ruby %<cr>
+
 au BufRead,BufNewFile *.pde set filetype=arduino
 au BufRead,BufNewFile *.ino set filetype=arduino
 au BufRead,BufNewFile *.go set filetype=go
@@ -195,6 +198,7 @@ set directory=$HOME/.vim/swapfiles//
 "let g:syntastic_go_checkers = ['golint']
 call neomake#configure#automake('nrwi', 500)
 "let g:neomake_open_list = 2
+"let g:ycm_auto_trigger = 1
 
 "Let <Esc> return to normal mode in term
 tnoremap <Esc> <C-\><C-n>
