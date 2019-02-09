@@ -202,3 +202,4 @@ call neomake#configure#automake('nrwi', 500)
 
 "Let <Esc> return to normal mode in term
 tnoremap <Esc> <C-\><C-n>
+colorscheme delek
