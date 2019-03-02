@@ -42,7 +42,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 
 Plug 'tpope/vim-rails', {'for': 'ruby'}
-Plug 'tpope/vim-haml', {'for': 'ruby'}
+Plug 'tpope/vim-haml', {'for': 'haml'}
 Plug 'janko-m/vim-test', {'for': 'ruby'}
 Plug 'keith/rspec.vim', {'for': 'ruby'}
 Plug 'kchmck/vim-coffee-script'

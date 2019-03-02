@@ -31,7 +31,6 @@ def should_sync?
   last_sync = Time.parse(last_sync_time_string).to_i || 0
   Time.now.to_i > last_sync + TIME_TO_CHECK
 rescue StandardError => ex
-  puts ex.inspect
   return true
 end
 
