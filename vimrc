@@ -46,6 +46,7 @@ Plug 'tpope/vim-haml', {'for': 'haml'}
 Plug 'janko-m/vim-test', {'for': 'ruby'}
 Plug 'keith/rspec.vim', {'for': 'ruby'}
 Plug 'kchmck/vim-coffee-script'
+Plug 'hashivim/vim-terraform', {'for': ['tf', 'terraform']}
 
 Plug 'emilyst/vim-xray'
 

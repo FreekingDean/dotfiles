@@ -10,9 +10,6 @@ khd mode default on_enter chunkc border::color 0xffd75f5f
 # Toggle Modes
 ctrl - w -> : if \
   [[ "$(chunkc tiling::query --window name)" != *"NVIM"* ]] && \
-  [[ "$(chunkc tiling::query --window name)" != *"vim"* ]] && \
-  [[ "$(chunkc tiling::query --window name)" != *"VIM"* ]] && \
-  [[ "$(chunkc tiling::query --window name)" != *"fg"* ]]; \
   then khd -e "mode activate chunkwm"; \
   fi
 chunkwm - escape        :   khd -e "mode activate default"
