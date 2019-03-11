@@ -195,9 +195,10 @@ nnoremap <C-w>z <C-w><bar><C-w>_
 " Set swapfiles to homedir
 set directory=$HOME/.vim/swapfiles//
 
+let g:syntastic_python_checkers = []
 "let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 "let g:syntastic_go_checkers = ['golint']
-call neomake#configure#automake('nrwi', 500)
+"call neomake#configure#automake('nrwi', 500)
 "let g:neomake_open_list = 2
 "let g:ycm_auto_trigger = 1
 
