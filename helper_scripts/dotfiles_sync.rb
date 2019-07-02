@@ -1,6 +1,7 @@
 require 'json'
 require 'time'
 require 'git'
+require 'timeout'
 
 module Git
   class Lib
@@ -86,4 +87,6 @@ def current_status
   @current_status ||= git_controller.status
 end
 
-check_local_files_for_updates
+Timeout.timeout(2) do
+  check_local_files_for_updates
+end
