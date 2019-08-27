@@ -15,6 +15,7 @@ alias vim='nvim'
 alias vi='nvim'
 alias grep="grep --exclude-dir=.git --exclude-dir=coverage --exclude-dir=tmp --exclude-dir=vendor --color=auto"
 alias ralias="source ~/.zsh_aliases"
+alias git='hub'
 
 # aws ()
 # {
