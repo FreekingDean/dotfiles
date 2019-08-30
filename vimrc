@@ -205,3 +205,5 @@ let g:syntastic_python_checkers = []
 "Let <Esc> return to normal mode in term
 tnoremap <Esc> <C-\><C-n>
 colorscheme delek
+"Get the 2-space YAML as the default when hit carriage return after the colon
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
