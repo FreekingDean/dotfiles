@@ -1,5 +1,5 @@
 alias rspec='rspec --color'
-alias gclone='sh $HOME/.dotfiles/helper_scripts/gclone.sh'
+alias gclone='sh $HOME/.dotfiles/helper_scripts/gclone'
 alias sfclone='sh $HOME/.dotfiles/helper_scripts/sfclone.sh'
 alias asshole='ruby $HOME/.dotfiles/helper_scripts/asshole.rb'
 alias fuck='$(thefuck $(fc -ln -1))'
