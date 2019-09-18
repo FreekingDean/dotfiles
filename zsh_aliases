@@ -1,5 +1,5 @@
 alias rspec='rspec --color'
-alias gclone='sh $HOME/.dotfiles/helper_scripts/gclone'
+alias gclone='ruby $HOME/.dotfiles/helper_scripts/gclone.rb'
 alias sfclone='sh $HOME/.dotfiles/helper_scripts/sfclone.sh'
 alias asshole='ruby $HOME/.dotfiles/helper_scripts/asshole.rb'
 alias fuck='$(thefuck $(fc -ln -1))'
@@ -15,6 +15,7 @@ alias vim='nvim'
 alias vi='nvim'
 alias grep="grep --exclude-dir=.git --exclude-dir=coverage --exclude-dir=tmp --exclude-dir=vendor --color=auto"
 alias ralias="source ~/.zsh_aliases"
+alias refresh="source ~/.zshrc"
 alias git='hub'
 
 # aws ()
