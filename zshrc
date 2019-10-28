@@ -81,3 +81,5 @@ if [ -f '/Users/deangalvin/Projects/google-cloud-sdk/path.zsh.inc' ]; then . '/U
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/deangalvin/Projects/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/deangalvin/Projects/google-cloud-sdk/completion.zsh.inc'; fi
 export POWERLINE_CONFIG_COMMAND=$HOME/.powerline/scripts/powerline-config
+
+source <(kubectl completion zsh)
