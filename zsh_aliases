@@ -17,6 +17,8 @@ alias grep="grep --exclude-dir=.git --exclude-dir=coverage --exclude-dir=tmp --e
 alias ralias="source ~/.zsh_aliases"
 alias refresh="source ~/.zshrc"
 alias git='hub'
+alias kctl='kubectl'
+alias skctl='KUBECONFIG=~/.kube/config-server kubectl --insecure-skip-tls-verify'
 
 # aws ()
 # {
