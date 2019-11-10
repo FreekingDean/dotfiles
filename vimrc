@@ -45,6 +45,8 @@ Plug 'tpope/vim-rails', {'for': 'ruby'}
 Plug 'tpope/vim-haml', {'for': 'haml'}
 Plug 'janko-m/vim-test', {'for': 'ruby'}
 Plug 'keith/rspec.vim', {'for': 'ruby'}
+Plug 'Shougo/unite.vim', {'for': 'json'}
+Plug 'Quramy/vison', {'for': 'json'}
 Plug 'kchmck/vim-coffee-script'
 Plug 'hashivim/vim-terraform', {'for': ['tf', 'terraform']}
 
@@ -207,3 +209,4 @@ tnoremap <Esc> <C-\><C-n>
 colorscheme delek
 "Get the 2-space YAML as the default when hit carriage return after the colon
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+set omnifunc=syntaxcomplete#Complete
