@@ -45,8 +45,6 @@ Plug 'tpope/vim-rails', {'for': 'ruby'}
 Plug 'tpope/vim-haml', {'for': 'haml'}
 Plug 'janko-m/vim-test', {'for': 'ruby'}
 Plug 'keith/rspec.vim', {'for': 'ruby'}
-Plug 'Shougo/unite.vim', {'for': 'json'}
-Plug 'Quramy/vison', {'for': 'json'}
 Plug 'kchmck/vim-coffee-script'
 Plug 'hashivim/vim-terraform', {'for': ['tf', 'terraform']}
 
@@ -55,7 +53,7 @@ Plug 'emilyst/vim-xray'
 Plug 'pangloss/vim-javascript', {'for': ['js', 'jsx', 'ruby']}
 Plug 'mxw/vim-jsx', {'for': ['js', 'jsx']}
 
-Plug 'fatih/vim-go', {'for': 'go' }
+Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoUpdateBinaries' }
 
 Plug 'elixir-lang/vim-elixir', {'for': 'elixer'}
 
