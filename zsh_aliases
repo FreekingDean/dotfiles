@@ -19,6 +19,7 @@ alias refresh="source ~/.zshrc"
 alias git='hub'
 alias kctl='kubectl'
 alias skctl='KUBECONFIG=~/.kube/config-server kubectl --insecure-skip-tls-verify'
+#alias rails='bundle exec rails'
 
 # aws ()
 # {
