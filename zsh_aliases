@@ -54,3 +54,7 @@ sshstage() {
 forake() {
   fixops run -a fixops-service -e i \"fixops-ssm-env fixops-service bundle exec rake $1\"
 }
+
+k8srestart() {
+  kubectl scale --replicas=0 deployment/$1 && kubectl scale --replicas=1 deployment/$1
+}
