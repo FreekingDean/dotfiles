@@ -39,6 +39,17 @@ ftfc ()
   sudo killall AppleCameraAssistant
 }
 
+ftfk()
+{
+  sudo killall -7 karabiner_grabber
+  sudo killall -7 karabiner_observer
+  sudo killall -7 karabiner_console_user_server
+  sudo killall -7 Karabiner-Menu
+  sudo killall -7 Karabiner-NotificationWindow
+  sudo killall -7 karabiner_kextd
+  sudo killall -7 karabiner_session_monitor
+}
+
 sshinfra() {
   ssh $(AWS_PROFILE=sfinfra aws ec2 describe-instances --region us-east-1 --filters Name=tag:Name,Values=tf-ecs-main Name=instance-state-name,Values=running --query 'Reservations[0].Instances[0].PrivateIpAddress' --output text)
 }
