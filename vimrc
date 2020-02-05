@@ -40,6 +40,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
+Plug 'tomlion/vim-solidity', {'for': 'sol'}
 
 Plug 'tpope/vim-rails', {'for': 'ruby'}
 Plug 'tpope/vim-haml', {'for': 'haml'}
@@ -97,11 +98,13 @@ set ttyfast
 syntax enable
 set nohlsearch
 set nu
-set ts=2
-set shiftwidth=2
+
+autocmd FileType ruby setlocal shiftwidth=2 ts=2 expandtab
+autocmd FileType solidity setlocal shiftwidth=4 ts=4 expandtab
 set autoindent
 set smarttab
 set expandtab
+
 set showmatch
 set encoding=utf-8
 set laststatus=2
@@ -195,16 +198,10 @@ nnoremap <C-w>z <C-w><bar><C-w>_
 " Set swapfiles to homedir
 set directory=$HOME/.vim/swapfiles//
 
-let g:syntastic_python_checkers = []
-"let g:syntastic_ruby_checkers = ['rubocop', 'mri']
-"let g:syntastic_go_checkers = ['golint']
-"call neomake#configure#automake('nrwi', 500)
-"let g:neomake_open_list = 2
-"let g:ycm_auto_trigger = 1
-
 "Let <Esc> return to normal mode in term
 tnoremap <Esc> <C-\><C-n>
 colorscheme delek
 "Get the 2-space YAML as the default when hit carriage return after the colon
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 set omnifunc=syntaxcomplete#Complete
+call neomake#configure#automake('w')
