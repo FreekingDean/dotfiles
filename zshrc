@@ -83,3 +83,9 @@ if [ -f '/Users/deangalvin/Projects/google-cloud-sdk/completion.zsh.inc' ]; then
 export POWERLINE_CONFIG_COMMAND=$HOME/.powerline/scripts/powerline-config
 
 source <(kubectl completion zsh)
+
+. /usr/local/opt/asdf/asdf.sh
+
+. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+
+GREP_OPTIONS='--color=auto --exclude-dir=node_modules'

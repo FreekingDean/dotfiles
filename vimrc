@@ -99,6 +99,7 @@ syntax enable
 set nohlsearch
 set nu
 
+autocmd FileType javascript setlocal shiftwidth=2 ts=2 expandtab
 autocmd FileType ruby setlocal shiftwidth=2 ts=2 expandtab
 autocmd FileType solidity setlocal shiftwidth=4 ts=4 expandtab
 set autoindent
