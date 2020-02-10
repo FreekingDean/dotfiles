@@ -52,6 +52,7 @@ Plug 'hashivim/vim-terraform', {'for': ['tf', 'terraform']}
 Plug 'emilyst/vim-xray'
 
 Plug 'pangloss/vim-javascript', {'for': ['js', 'jsx', 'ruby']}
+Plug 'chemzqm/vim-jsx-improve', {'for': ['jsx']}
 Plug 'mxw/vim-jsx', {'for': ['js', 'jsx']}
 
 Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoUpdateBinaries' }

@@ -88,4 +88,4 @@ source <(kubectl completion zsh)
 
 . /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
 
-GREP_OPTIONS='--color=auto --exclude-dir=node_modules'
+export GREP_OPTIONS='--color=auto --exclude-dir=node_modules'
