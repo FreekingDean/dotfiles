@@ -128,6 +128,7 @@ setupNeoVim() {
   fi
   mkdir -p $HOME/.config/nvim
   echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after\nlet &packpath = &runtimepath\nsource ~/.vimrc" > ~/.config/nvim/init.vim
+  source ~/.zshrc
   mkdir -p $HOME/.vim/tmp $HOME/.vim/backups
   vim +PlugInstall +qall
 }
