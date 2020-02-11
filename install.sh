@@ -17,7 +17,7 @@ PLATFORM=$(uname)
 if [ "$PLATFORM" = "linux" ];then
   PLATFORM=$(cat /etc/*-release | grep ^ID=[A-Za-z][A-Za-z]*$ | sed 's/^ID=\(.*\)$/\1/')
 fi
-PACKAGES="zsh ruby git curl wget neovim tmux"
+PACKAGES="zsh ruby git curl wget neovim tmux openssh"
 
 if [ "$PLATFORM" = "debian" ]; then
   PACKAGER="sudo apt-get -y"
@@ -97,7 +97,7 @@ setupGit() {
   fi
   echo -e "Copy the above and enter it here:"
   echo -e "https://github.com/settings/ssh/new"
-  read -n 1 -s -r -p "Press any key to continue"
+  #read -n 1 -s -r -p "Press any key to continue"
 }
 
 installRBENV() {
