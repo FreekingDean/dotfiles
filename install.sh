@@ -15,6 +15,7 @@ fi
 
 PLATFORM=$(uname)
 if [ "$PLATFORM" = "linux" ];then
+  echo "'$PLATFORM'"
   PLATFORM=$(cat /etc/*-release | grep ^ID=[A-Za-z][A-Za-z]*$ | sed 's/^ID=\(.*\)$/\1/')
   echo "'$PLATFORM'"
   if [ "$PLATFORM" = ""]; then

@@ -66,7 +66,9 @@ PATH=$PATH:$HOME/.bin:$HOME/.local/bin:$HOME/.bin/pact/bin
 # The next line enables bash completion for gcloud.
 # source '/home/$USER/google-cloud-sdk/completion.zsh.inc'
 
-update_dev_env
+if [[ "$SKIP_DEV_ENV_UPDATE" != "true" ]]; then
+  update_dev_env
+fi
 
 ANDROID_HOME=$HOME/Android/Sdk
 
@@ -84,8 +86,8 @@ export POWERLINE_CONFIG_COMMAND=$HOME/.powerline/scripts/powerline-config
 
 source <(kubectl completion zsh)
 
-. /usr/local/opt/asdf/asdf.sh
+. $HOME/.asdf/asdf.sh
 
-. /usr/local/opt/asdf/etc/bash_completion.d/asdf.bash
+. $HOME/.asdf/completions/asdf.bash
 
 export GREP_OPTIONS='--color=auto --exclude-dir=node_modules'
