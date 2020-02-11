@@ -89,15 +89,15 @@ setupGit() {
   echo -e "Running basic git configuration...\n"
   git config --global user.name "Dean Galvin"
   git config --global user.email "deangalvin3@gmail.com"
-  if [ -f $HOME/.ssh/id_rsa.pub ]; then
-    cat $HOME/.ssh/id_rsa.pub
-  else
-    ssh-keygen -t rsa -b 4096 -C deangalvin3@gmail.com
-    cat $HOME/.ssh/id_rsa.pub
-  fi
-  echo -e "Copy the above and enter it here:"
-  echo -e "https://github.com/settings/ssh/new"
-  #read -n 1 -s -r -p "Press any key to continue"
+  #if [ -f $HOME/.ssh/id_rsa.pub ]; then
+  #  cat $HOME/.ssh/id_rsa.pub
+  #else
+  #  ssh-keygen -t rsa -b 4096 -C deangalvin3@gmail.com
+  #  cat $HOME/.ssh/id_rsa.pub
+  #fi
+  #echo -e "Copy the above and enter it here:"
+  #echo -e "https://github.com/settings/ssh/new"
+  ##read -n 1 -s -r -p "Press any key to continue"
 }
 
 installRBENV() {
