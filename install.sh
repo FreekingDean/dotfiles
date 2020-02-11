@@ -16,6 +16,7 @@ fi
 PLATFORM=$(uname)
 if [ "$PLATFORM" = "linux" ];then
   PLATFORM=$(cat /etc/*-release | grep ^ID=[A-Za-z][A-Za-z]*$ | sed 's/^ID=\(.*\)$/\1/')
+  echo "'$PLATFORM'"
   if [ "$PLATFORM" = ""]; then
     if [ -x "$(command -v pacman)" ]; then
       PLATFORM="arch"
