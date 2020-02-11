@@ -14,17 +14,15 @@ fi
 ####FUNCTIONS####
 
 PLATFORM=$(uname)
-if [ "$PLATFORM" = "linux" ];then
-  echo "'$PLATFORM'"
+if [ "$PLATFORM" = "linux" ] || [ "$PLATFORM" = "Linux" ]; then
   PLATFORM=$(cat /etc/*-release | grep ^ID=[A-Za-z][A-Za-z]*$ | sed 's/^ID=\(.*\)$/\1/')
-  echo "'$PLATFORM'"
-  if [ "$PLATFORM" = ""]; then
+  if [ "$PLATFORM" = "" ]; then
     if [ -x "$(command -v pacman)" ]; then
       PLATFORM="arch"
     fi
   fi
 fi
-PACKAGES="zsh ruby git curl wget neovim tmux openssh"
+PACKAGES="zsh ruby git curl wget neovim tmux openssh go kubectl"
 
 if [ "$PLATFORM" = "debian" ]; then
   PACKAGER="sudo apt-get -y"
@@ -70,7 +68,10 @@ ohmyzsh() {
     curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
     #in case prompt fails for zsh
   fi
-  chsh -s /bin/zsh
+  if [ ! "$SKIP_CHSH"="true" ]; then
+    chsh -s /bin/zsh
+  fi
+  mv .zshrc.pre-oh-my-zsh ~/.zshrc
 }
 
 #git and clone the git file for install
@@ -78,6 +79,7 @@ cloneRepo() {
   echo -e "Cloning dotfile repo into directory...\n"
   git clone https://github.com/FreekingDean/dotfiles.git $HOME/.dotfiles
   echo -e "Symlinking vimrc, zshrc, tmux.conf and such to HOME...\n"
+  touch $HOME/.zshrc
   mv $HOME/.zshrc $HOME/.zshrc.bak #remove original zshrc
 
   ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
@@ -113,11 +115,12 @@ installRBENV() {
     cd ~/.rbenv && src/configure && make -C src || true
   fi
   cd $HOME
-  mkdir -p "$(rbenv root)"/plugins
+  mkdir -p "$(~/.rbenv/bin/rbenv root)"/plugins
   if [ ! -d "$HOME/.rbenv/plugins/ruby-build" ]; then
-    git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+    git clone https://github.com/rbenv/ruby-build.git "$(~/.rbenv/bin/rbenv root)"/plugins/ruby-build
   fi
-  ~/.rbenv/bin/rbenv install 2.5.1
+  ~/.rbenv/bin/rbenv init
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 }
 
 setupNeoVim() {
@@ -129,10 +132,9 @@ setupNeoVim() {
     sudo pip install neovim
   fi
   mkdir -p $HOME/.config/nvim
-  echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after\nlet &packpath = &runtimepath\nsource ~/.vimrc" > ~/.config/nvim/init.vim
-  source ~/.zshrc
+  echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\nlet &packpath = &runtimepath\nsource ~/.vimrc" > ~/.config/nvim/init.vim
   mkdir -p $HOME/.vim/tmp $HOME/.vim/backups
-  vim +PlugInstall +qall
+  nvim --headless +PlugInstall +qall
 }
 
 installBasics() {
@@ -150,10 +152,11 @@ installBasics() {
 }
 
 installGems() {
-  rbenv shell 2.5.1
+  ~/.rbenv/bin/rbenv install 2.5.1
+  $HOME/.rbenv/bin/rbenv shell 2.5.1
   gem install git
   gem install awesome_print
-  rbenv shell system
+  $HOME/.rbenv/bin/rbenv shell system
 }
 
 ####END FUNCTIONS####
@@ -167,4 +170,6 @@ ohmyzsh
 installRBENV
 setupNeoVim
 installPowerline
-installGems
+if [[ ! "$SKIP_DEV_ENV_UPDATE"=true ]]; then
+  installGems
+fi
