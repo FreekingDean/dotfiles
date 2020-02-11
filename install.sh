@@ -41,6 +41,7 @@ elif [ "$PLATFORM" = "Darwin" ]; then
   PACKAGES="$PACKAGES python"
 else
   echo "platform '$PLATFORM' is not supported"
+  exit 1
 fi
 
 #Install powerline via git+pip
