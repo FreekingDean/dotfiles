@@ -69,7 +69,7 @@ ohmyzsh() {
 #git and clone the git file for install
 cloneRepo() {
   echo -e "Cloning dotfile repo into directory...\n"
-  git clone git@github.com:FreekingDean/dotfiles.git $HOME/.dotfiles
+  git clone https://github.com/FreekingDean/dotfiles.git $HOME/.dotfiles
   echo -e "Symlinking vimrc, zshrc, tmux.conf and such to HOME...\n"
   mv $HOME/.zshrc $HOME/.zshrc.bak #remove original zshrc
 
