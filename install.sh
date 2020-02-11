@@ -73,15 +73,15 @@ cloneRepo() {
   echo -e "Symlinking vimrc, zshrc, tmux.conf and such to HOME...\n"
   mv $HOME/.zshrc $HOME/.zshrc.bak #remove original zshrc
 
-  ln -sh $HOME/.dotfiles/zshrc $HOME/.zshrc
-  ln -sh $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
-  ln -sh $HOME/.dotfiles/zsh_aliases $HOME/.zsh_aliases
-  ln -sh $HOME/.dotfiles/vimrc $HOME/.vimrc
-  ln -sh $HOME/.dotfiles/tmux $HOME/.tmux
-  ln -sh $HOME/.dotfiles/Xresources $HOME/.Xresources
-  ln -sh $HOME/.dotfiles/irssi $HOME/.irssi
-  ln -sh $HOME/.dotfiles/khdrc $HOME/.khdrc
-  ln -sh $HOME/.dotfiles/chunkwmrc $HOME/.chunkwmrc
+  ln -s $HOME/.dotfiles/zshrc $HOME/.zshrc
+  ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
+  ln -s $HOME/.dotfiles/zsh_aliases $HOME/.zsh_aliases
+  ln -s $HOME/.dotfiles/vimrc $HOME/.vimrc
+  ln -s $HOME/.dotfiles/tmux $HOME/.tmux
+  ln -s $HOME/.dotfiles/Xresources $HOME/.Xresources
+  ln -s $HOME/.dotfiles/irssi $HOME/.irssi
+  ln -s $HOME/.dotfiles/khdrc $HOME/.khdrc
+  ln -s $HOME/.dotfiles/chunkwmrc $HOME/.chunkwmrc
 }
 
 #setup git
