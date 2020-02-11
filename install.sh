@@ -16,6 +16,11 @@ fi
 PLATFORM=$(uname)
 if [ "$PLATFORM" = "linux" ];then
   PLATFORM=$(cat /etc/*-release | grep ^ID=[A-Za-z][A-Za-z]*$ | sed 's/^ID=\(.*\)$/\1/')
+  if [ "$PLATFORM" = ""]; then
+    if [ -x "$(command -v pacman)" ]; then
+      PLATFORM="arch"
+    fi
+  fi
 fi
 PACKAGES="zsh ruby git curl wget neovim tmux openssh"
 
@@ -26,7 +31,7 @@ if [ "$PLATFORM" = "debian" ]; then
   PACKAGER_UPGRADE="upgrade"
   PACKAGES="$PACKAGES python3 python3-pip libssl-dev libreadline-dev zlib1g-dev"
   sudo cp /usr/bin/pip3 /usr/bin/pip
-elif [ "$PLATFORM" = "arch" ] || [ -x "$(command -v pacman)" ]; then
+elif [ "$PLATFORM" = "arch" ]; then
   PACKAGER="sudo pacman --noconfirm"
   PACKAGER_INSTALL="-S"
   PACKAGER_UPDATE="-Syu"
