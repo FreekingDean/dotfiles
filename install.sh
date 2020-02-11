@@ -26,7 +26,7 @@ if [ "$PLATFORM" = "debian" ]; then
   PACKAGER_UPGRADE="upgrade"
   PACKAGES="$PACKAGES python3 python3-pip libssl-dev libreadline-dev zlib1g-dev"
   sudo cp /usr/bin/pip3 /usr/bin/pip
-elif [ "$PLATFORM" = "arch" ]; then
+elif [ "$PLATFORM" = "arch" ] || [hash pacman 2>/dev/null]; then
   PACKAGER="sudo pacman --noconfirm"
   PACKAGER_INSTALL="-S"
   PACKAGER_UPDATE="-Syu"
