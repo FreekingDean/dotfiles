@@ -99,13 +99,14 @@ set ttyfast
 syntax enable
 set nohlsearch
 set nu
-
-autocmd FileType javascript setlocal shiftwidth=2 ts=2 expandtab
-autocmd FileType ruby setlocal shiftwidth=2 ts=2 expandtab
-autocmd FileType solidity setlocal shiftwidth=4 ts=4 expandtab
+set ts=2
+set shiftwidth=2
 set autoindent
 set smarttab
 set expandtab
+
+autocmd FileType solidity setlocal shiftwidth=4 ts=4
+autocmd FileType go setlocal noexpandtab
 
 set showmatch
 set encoding=utf-8
