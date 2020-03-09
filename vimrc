@@ -107,6 +107,7 @@ set expandtab
 
 autocmd FileType solidity setlocal shiftwidth=4 ts=4
 autocmd FileType go setlocal noexpandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 set showmatch
 set encoding=utf-8
@@ -205,6 +206,5 @@ set directory=$HOME/.vim/swapfiles//
 tnoremap <Esc> <C-\><C-n>
 colorscheme delek
 "Get the 2-space YAML as the default when hit carriage return after the colon
-autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 set omnifunc=syntaxcomplete#Complete
 call neomake#configure#automake('w')
