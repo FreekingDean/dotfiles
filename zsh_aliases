@@ -13,13 +13,14 @@ alias rake='noglob rake'
 alias update_gemfury='/usr/bin/ruby $HOME/.dotfiles/helper_scripts/update_gemfury_token.rb'
 alias vim='nvim'
 alias vi='nvim'
-alias grep="grep --exclude-dir=.git --exclude-dir=coverage --exclude-dir=tmp --exclude-dir=vendor --color=auto"
+alias grep="grep --exclude-dir=.git --exclude-dir=coverage --exclude-dir=tmp --exclude-dir=vendor --color=auto --exclude-dir=node_modules"
 alias ralias="source ~/.zsh_aliases"
 alias refresh="source ~/.zshrc"
 alias git='hub'
 alias kctl='kubectl'
 alias skctl='KUBECONFIG=~/.kube/config-server kubectl --insecure-skip-tls-verify'
 #alias rails='bundle exec rails'
+alias hyper="cmd.exe /c hyper"
 
 # aws ()
 # {

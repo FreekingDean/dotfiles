@@ -89,5 +89,3 @@ source <(kubectl completion zsh)
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
-
-export GREP_OPTIONS='--color=auto --exclude-dir=node_modules'

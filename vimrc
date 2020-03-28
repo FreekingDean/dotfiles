@@ -157,13 +157,17 @@ endif
 "Auto Rspec on <,+t>
 let mapleader=","
 " RSpec.vim mappings
-map <Leader>t :TestFile<CR>
-map <Leader>g :TestNearest<CR>
+"map <Leader>t :TestFile<CR>
+"map <Leader>g :TestNearest<CR>
 map <Leader>l :TestLast<CR>
 map <Leader>a :TestSuite<CR>
 map <Leader>b :Tagbar<CR>
 nmap <silent> <leader>c :Gstatus<cr>
 nnoremap <leader>. :CtrlPTag<cr>
+autocmd FileType go noremap <buffer> <Leader>t :GoTest<CR>
+autocmd FileType ruby noremap <buffer> <Leader>t :TestFile<CR>
+autocmd FileType go noremap <buffer> <Leader>g :GoTestFunc<CR>
+autocmd FileType ruby noremap <buffer> <Leader>g :TestNearest<CR>
 
 "Run go prgm on <,+g+r>
 map<leader>gr :w\|!go run %<cr>
