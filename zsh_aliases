@@ -70,3 +70,7 @@ forake() {
 k8srestart() {
   kubectl scale --replicas=0 deployment/$1 && kubectl scale --replicas=1 deployment/$1
 }
+
+fork() {
+  echo $0
+}
