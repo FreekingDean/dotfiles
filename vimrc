@@ -40,13 +40,16 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mileszs/ack.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
-Plug 'tomlion/vim-solidity', {'for': 'sol'}
+Plug 'rking/ag.vim'
 
+Plug 'leafgarland/typescript-vim', {'for': ['tsx', 'typescriptreact']}
+Plug 'tasn/vim-tsx', {'for': ['tsx']}
+Plug 'tomlion/vim-solidity', {'for': 'sol'}
 Plug 'tpope/vim-rails', {'for': 'ruby'}
 Plug 'tpope/vim-haml', {'for': 'haml'}
 Plug 'janko-m/vim-test', {'for': 'ruby'}
 Plug 'keith/rspec.vim', {'for': 'ruby'}
-Plug 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'hashivim/vim-terraform', {'for': ['tf', 'terraform']}
 
 Plug 'emilyst/vim-xray'
@@ -187,7 +190,7 @@ let spring_exists = system('spring -v')
 "let g:rspec_command = '!spring rspec {spec}'
 let g:rspec_command = '!RAILS_ENV=test bundle exec rspec {spec} --color --profile'
 
-nmap \ :Ack!
+nmap \ :Ag!
 
 "Vim-Tmux split nav
 let g:chunkwm_navigator_no_mappings = 1
