@@ -76,12 +76,6 @@ source ~/.secretsrc
 
 source ~/.dotfiles/platform_loader
 export PATH="/usr/local/opt/node@8/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/deangalvin/Projects/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/deangalvin/Projects/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/deangalvin/Projects/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/deangalvin/Projects/google-cloud-sdk/completion.zsh.inc'; fi
 export POWERLINE_CONFIG_COMMAND=$HOME/.powerline/scripts/powerline-config
 
 source <(kubectl completion zsh)
@@ -92,3 +86,9 @@ source <(kubectl completion zsh)
 
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/dean/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/dean/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/dean/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/dean/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/dean/google-cloud-sdk/completion.zsh.inc'; fi
