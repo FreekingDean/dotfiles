@@ -172,6 +172,9 @@ autocmd FileType ruby noremap <buffer> <Leader>t :TestFile<CR>
 autocmd FileType go noremap <buffer> <Leader>g :GoTestFunc<CR>
 autocmd FileType ruby noremap <buffer> <Leader>g :TestNearest<CR>
 
+"Terraform fmt on save
+let g:terraform_fmt_on_save=1
+
 "Run go prgm on <,+g+r>
 map<leader>gr :w\|!go run %<cr>
 

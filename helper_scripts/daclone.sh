@@ -5,4 +5,4 @@ if [[ $# -eq 0 ]] ; then
   exit 1
 fi
 
-git clone git@github.com:stitchfix/$1.git
+git clone git@github.com:dressanomalie/$1.git

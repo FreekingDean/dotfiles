@@ -1,6 +1,6 @@
 alias rspec='rspec --color'
 alias gclone='ruby $HOME/.dotfiles/helper_scripts/gclone.rb'
-alias sfclone='sh $HOME/.dotfiles/helper_scripts/sfclone.sh'
+alias daclone='sh $HOME/.dotfiles/helper_scripts/daclone.sh'
 alias asshole='ruby $HOME/.dotfiles/helper_scripts/asshole.rb'
 alias fuck='$(thefuck $(fc -ln -1))'
 alias irssi="TERM=screen-256color irssi" #fix for the xterm fix above with xfce4term and irssi buffer
