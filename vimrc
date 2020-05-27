@@ -171,6 +171,7 @@ autocmd FileType go noremap <buffer> <Leader>t :GoTest<CR>
 autocmd FileType ruby noremap <buffer> <Leader>t :TestFile<CR>
 autocmd FileType go noremap <buffer> <Leader>g :GoTestFunc<CR>
 autocmd FileType ruby noremap <buffer> <Leader>g :TestNearest<CR>
+autocmd FileType ruby noremap <buffer> <Leader>r :!rubocop -a %<CR>
 
 "Terraform fmt on save
 let g:terraform_fmt_on_save=1
@@ -219,3 +220,7 @@ colorscheme delek
 "Get the 2-space YAML as the default when hit carriage return after the colon
 set omnifunc=syntaxcomplete#Complete
 call neomake#configure#automake('w')
+" use _ as a word boundry
+set iskeyword-=_
+
+autocmd BufWritePost *.rb silent !bundle exec rubocop -a %
