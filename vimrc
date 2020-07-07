@@ -110,6 +110,7 @@ set smarttab
 set expandtab
 
 autocmd FileType solidity setlocal shiftwidth=4 ts=4
+autocmd FileType cs setlocal shiftwidth=4 ts=4
 autocmd FileType go setlocal noexpandtab
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
