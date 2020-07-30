@@ -42,7 +42,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'rking/ag.vim'
 
-Plug 'leafgarland/typescript-vim', {'for': ['tsx', 'typescriptreact']}
+Plug 'leafgarland/typescript-vim', {'for': ['tsx', 'ts', 'typescript', 'typescriptreact']}
 Plug 'tasn/vim-tsx', {'for': ['tsx']}
 Plug 'tomlion/vim-solidity', {'for': 'sol'}
 Plug 'tpope/vim-rails', {'for': 'ruby'}
