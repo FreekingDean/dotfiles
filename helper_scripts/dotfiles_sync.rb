@@ -3,22 +3,6 @@ require 'time'
 require 'git'
 require 'timeout'
 
-module Git
-  class Lib
-    def ls_files(location=nil)
-      location ||= '.'
-      hsh = {}
-      command_lines('ls-files', ['--stage', location]).each do |line|
-        (info, file) = line.split("\t")
-        (mode, sha, stage) = info.split
-        file = eval(file) if file =~ /^\".*\"$/ # This takes care of quoted strings returned from git
-        hsh[file] = {:path => file, :mode_index => mode, :sha_index => sha, :stage => stage}
-      end
-      hsh
-    end
-  end
-end
-
 TIME_TO_CHECK = 24 * 60 * 60 #Once per day
 
 def file_path(path)
@@ -58,7 +42,7 @@ end
 
 def git_controller
  #, :log => Logger.new(STDOUT))
- @git ||= Git.open('~/.dotfiles')
+  @git ||= Git.open(File.join(ENV['HOME'], '.dotfiles'))
 end
 
 def sync_upstream

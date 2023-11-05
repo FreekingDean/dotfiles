@@ -29,7 +29,7 @@ if [ "$PLATFORM" = "debian" ]; then
   PACKAGER_INSTALL="install"
   PACKAGER_UPDATE="update"
   PACKAGER_UPGRADE="upgrade"
-  PACKAGES="$PACKAGES python3 python3-pip libssl-dev libreadline-dev zlib1g-dev"
+  PACKAGES="$PACKAGES python3 python3-pip libssl-dev libreadline-dev zlib1g-dev python pip nvim tmux zsh golang"
   sudo cp /usr/bin/pip3 /usr/bin/pip
 elif [ "$PLATFORM" = "arch" ]; then
   PACKAGER="sudo pacman --noconfirm"
