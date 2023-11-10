@@ -132,7 +132,7 @@ setupNeoVim() {
     sudo pip install neovim
   fi
   mkdir -p $HOME/.config/nvim
-  echo -e "set runtimepath^=~/.vim runtimepath+=~/.vim/after\nlet &packpath = &runtimepath\nsource ~/.vimrc" > ~/.config/nvim/init.vim
+  echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after\nlet &packpath = &runtimepath\nsource ~/.vimrc" > ~/.config/nvim/init.vim
   mkdir -p $HOME/.vim/tmp $HOME/.vim/backups
   nvim --headless +PlugInstall +qall
 }
