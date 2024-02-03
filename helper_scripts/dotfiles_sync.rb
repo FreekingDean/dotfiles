@@ -27,7 +27,7 @@ def check_upstream_for_updates
   git_controller.add
   git_controller.lib.send(:command, 'stash')
   git_controller.pull
-  git_controller.lib.send(:command, 'stash pop')
+  git_controller.lib.send(:command, 'stash', 'pop')
   git_controller.status
 rescue Git::GitExecuteError => ex
   puts ex
