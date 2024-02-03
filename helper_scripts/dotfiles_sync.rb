@@ -72,6 +72,6 @@ def current_status
   @current_status ||= git_controller.status
 end
 
-Timeout.timeout(10) do
+Timeout.timeout(2) do
   check_local_files_for_updates
 end
