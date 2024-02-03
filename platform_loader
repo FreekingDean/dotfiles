@@ -2,14 +2,15 @@ platform='unknown'
 unamestr=`uname`
 
 if [[ "$unamestr" == 'Linux' ]]; then
-   platform='archlinux'
-   #TODO add other linux support
+  platform=$(source /etc/os-release && echo $ID)
 elif [[ "$unamestr" == 'Darwin' ]]; then
-   platform='darwin'
+  platform='darwin'
 fi
 
 if [[ $platform == 'darwin' ]]; then
   source ~/.dotfiles/darwin_zshrc
 elif [[ $platform == 'archlinux' ]]; then
   source ~/.dotfiles/archlinux_zshrc
+elif [[ $platform == 'debian' ]]; then
+  source ~/.dotfiles/debian_zshrc
 fi
