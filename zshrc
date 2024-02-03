@@ -14,11 +14,7 @@ export TERM=xterm-256color #fix so tmux colors, and vim colors all play nice
 source ~/.zsh_aliases
 
 #oh-my-zsh plugins
-<<<<<<< Updated upstream
-plugins=(asdf git github vundle rbenv ruby rails encode64 tmux golang)
-=======
-plugins=(git github vundle rbenv ruby rails encode64 tmux golang)
->>>>>>> Stashed changes
+plugins=(asdf git github vundle ruby rails encode64 tmux golang)
 
 #locale settings
 export LANG=en_US.UTF-8
