@@ -26,6 +26,7 @@ end
 def check_upstream_for_updates
   git_controller.pull
 rescue Git::GitExecuteError => ex
+  puts ex
   puts "[DOTFILE SYNC] Could not reach git, aborting"
   exit 0
 end
