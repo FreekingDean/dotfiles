@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
-ruby $HOME/.dotfiles/helper_scripts/dotfiles_sync.rb "$@"
+$HOME/.asdf/shims/ruby $HOME/.dotfiles/helper_scripts/dotfiles_sync.rb "$@"

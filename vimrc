@@ -225,3 +225,5 @@ call neomake#configure#automake('w')
 set iskeyword-=_
 
 autocmd BufWritePost *.rb silent !bundle exec rubocop -a %
+
+colo vim
