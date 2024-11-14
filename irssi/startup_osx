@@ -1,5 +1,0 @@
-bind ^d command quit
-bind ^D command quit
-SET notifier_on_nick 1
-SET notifier_on_jhart.*
-nicklist fifo
