@@ -24,12 +24,19 @@ def store_sync_time
 end
 
 def check_upstream_for_updates
-  git_controller.add
-  git_controller.lib.send(:command, 'stash')
+  if count_not_synced > 0
+    git_controller.add
+    git_controller.lib.send(:command, 'stash')
+  end
+
   git_controller.pull
-  git_controller.lib.send(:command, 'stash', 'pop')
+
+  if count_not_synced > 0
+    git_controller.lib.send(:command, 'stash', 'pop')
+  end
+
   git_controller.status
-rescue Git::GitExecuteError => ex
+rescue Git::Error => ex
   puts ex
   puts "[DOTFILE SYNC] Could not reach git, aborting"
   exit 0
@@ -61,7 +68,7 @@ def sync_upstream
 end
 
 def count_not_synced
-  untracked.count + updated.count
+  @count_not_synced ||= untracked.count + updated.count
 end
 
 def untracked
