@@ -63,6 +63,8 @@ Plug 'fatih/vim-go', {'for': 'go', 'do': ':GoUpdateBinaries' }
 
 Plug 'elixir-lang/vim-elixir', {'for': 'elixer'}
 
+Plug 'github/copilot.vim'
+
 "if s:darwin
   Plug 'fielding/vim-chunkwm-navigator'
   Plug 'junegunn/vim-xmark'
