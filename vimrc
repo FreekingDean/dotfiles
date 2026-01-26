@@ -220,7 +220,7 @@ set directory=$HOME/.vim/swapfiles//
 
 "Let <Esc> return to normal mode in term
 tnoremap <Esc> <C-\><C-n>
-colorscheme delek
+colorscheme habamax
 "Get the 2-space YAML as the default when hit carriage return after the colon
 set omnifunc=syntaxcomplete#Complete
 call neomake#configure#automake('w')
