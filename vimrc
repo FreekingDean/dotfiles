@@ -52,6 +52,8 @@ Plug 'keith/rspec.vim', {'for': 'ruby'}
 Plug 'kchmck/vim-coffee-script', {'for': 'coffee'}
 Plug 'hashivim/vim-terraform', {'for': ['tf', 'terraform']}
 
+Plug 'chaimleib/vim-renpy'
+
 Plug 'emilyst/vim-xray'
 
 Plug 'pangloss/vim-javascript', {'for': ['js', 'jsx', 'ruby']}
