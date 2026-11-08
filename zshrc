@@ -77,3 +77,6 @@ export SOPS_AGE_KEY_FILE=~/.config/sops/age/keys.txt
 
 # opencode
 export PATH=/Users/dean/.opencode/bin:$PATH
+
+# Unity CLI
+. "/Users/dean/.unity/env"
